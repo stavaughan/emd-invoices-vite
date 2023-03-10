@@ -1,7 +1,7 @@
 {
   "name": "emd-invoices-vite",
   "version": "1.0.0",
-  "description": "Gold, platinum and silver scrap calculator based on current spot prices with React frontend and NodeJS server",
+  "description": "React Redux full-stack RESTful application to manage invoices using Vite, React, Redux, Express, MongoDB, Cloudinary, AWS S3",
   "type": "module",
   "main": "backend/server.js",
   "scripts": {

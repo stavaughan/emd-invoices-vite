@@ -1,6 +1,6 @@
 # React Invoice Manager
 
-A MERN Stack Application to Manage Invoices for multiple businesses
+React Redux full-stack application to manage invoices, powered by Vite on the front-end and coupled with Express RESTful API server that fetches data from MongoDB, Cloudinary and AWS S3
 
 ## Ideal For
 
