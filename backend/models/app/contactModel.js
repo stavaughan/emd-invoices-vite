@@ -1,8 +1,8 @@
 import mongoose from 'mongoose'
-import nameSchema from '../subModels/nameModel.js'
-import addressesSchema from '../subModels/addressesModel.js'
-import socialSchema from '../subModels/socialModel.js'
-import phoneSchema from '../subModels/phoneModel.js'
+import nameSchema from '../subModels/nameModel'
+import addressesSchema from '../subModels/addressesModel'
+import socialSchema from '../subModels/socialModel'
+import phoneSchema from '../subModels/phoneModel'
 
 const contactSchema = new mongoose.Schema(
     {

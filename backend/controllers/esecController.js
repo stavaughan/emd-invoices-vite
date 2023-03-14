@@ -1,7 +1,7 @@
 import asyncHandler from 'express-async-handler'
-import { encrypt, decrypt } from '../utils/cryptoHandler.js'
-import collectionsLogic from './collectionsLogic.js'
-import Esec from '../models/app/esecModel.js'
+import { encrypt, decrypt } from '../utils/cryptoHandler'
+import collectionsLogic from './collectionsLogic'
+import Esec from '../models/app/esecModel'
 
 const esecController = {
 

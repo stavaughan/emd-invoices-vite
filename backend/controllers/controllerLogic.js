@@ -1,5 +1,5 @@
-import messages from '../utils/messages.js'
-import collectionsLogic from './collectionsLogic.js'
+import messages from '../utils/messages'
+import collectionsLogic from './collectionsLogic'
 
 const msgs = messages.controllers.collections
 

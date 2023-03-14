@@ -1,6 +1,6 @@
 import dotenv from 'dotenv'
 dotenv.config()
-import cloudinaryV2 from '../config/cloudinary.js'
+import cloudinaryV2 from '../config/cloudinary'
 
 const getSID = async (pid) => {
     const idArray = await pid.replace('invoice-images/', '').split('_');

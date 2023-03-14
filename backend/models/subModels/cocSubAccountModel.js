@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import cocItemSchema from './cocItemModel.js'
+import cocItemSchema from './cocItemModel'
 
 const cocSubAccountSchema = new mongoose.Schema(
     {

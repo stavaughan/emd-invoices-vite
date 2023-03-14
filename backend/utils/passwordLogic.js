@@ -1,23 +1,24 @@
-import generator from 'generate-password'
-import tokenHandler from './tokenHandler.js'
+import generator from 'generate-password';
+
+import tokenHandler from './tokenHandler';
 
 const { getHashedPassword } = tokenHandler;
 
 const passwordLogic = {
-
-    generatePassword: async () => generator.generate({
-        numbers: true,
-        strict: true
+  generatePassword: async () =>
+    generator.generate({
+      numbers: true,
+      strict: true,
     }),
 
-    temporaryPassword: async () => {
-        const password = await passwordLogic.generatePassword()
-        const hashedPassword = await getHashedPassword(password)
-        return {
-            password,
-            hashedPassword
-        }
-    }
-}
+  temporaryPassword: async () => {
+    const password = await passwordLogic.generatePassword();
+    const hashedPassword = await getHashedPassword(password);
+    return {
+      password,
+      hashedPassword,
+    };
+  },
+};
 
-export default passwordLogic
+export default passwordLogic;

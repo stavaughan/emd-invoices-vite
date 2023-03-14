@@ -1,6 +1,6 @@
 import express from 'express'
-import usersController from '../controllers/usersController.js'
-import { protect } from '../middleware/authMiddleware.js'
+import usersController from '../controllers/usersController'
+import { protect } from '../middleware/authMiddleware'
 const {
     forgotPassword,
     requestAccess,

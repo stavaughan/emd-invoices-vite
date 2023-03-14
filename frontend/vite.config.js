@@ -1,38 +1,34 @@
-import react from "@vitejs/plugin-react";
-import path from 'path';
-import { defineConfig, loadEnv } from "vite";
+import { defineConfig, loadEnv } from 'vite';
+import configBuild from './viteConfig/build';
+import configResolve from './viteConfig/resolve';
+import configServer from './viteConfig/server';
+import configPlugins from './viteConfig/plugins';
 
-export default defineConfig(({ mode }) => {
-	const env = loadEnv(mode, process.cwd(), '')
+export default defineConfig(({ command, mode }) => {
+	const env = loadEnv(mode, process.cwd(), '');
 
 	const DOMAIN = mode === 'development'
 		? env.VITE_DOMAIN_DEV
 		: env.VITE_DOMAIN_PROD;
 
-	const pathResolve = (dir) => path.resolve(myDirname, '.', dir);
-
-	return {
-		plugins: [react()],
-		server: {
-			host: true,
-			proxy: {
-				'/api': {
-					target: DOMAIN,
-					changeOrigin: true,
-					secure: true,
-				},
-			},
-		},
-		resolve: {
-			alias: {
-				'@': pathResolve('src'),
-				'~': pathResolve('node_modules'),
-				'~bootstrap': pathResolve('node_modules/bootstrap'),
-			},
-		},
-		build: {
-			// to make tests faster
-			minify: false,
-		},
+	if (command === 'serve') {
+		return {
+			plugins: configPlugins(mode),
+			server: configServer(DOMAIN),
+			resolve: configResolve(__dirname),
+			build: configBuild(),
+			test: {
+				globals: true,
+				environment: 'jsdom',
+				setupFiles: './vitest.setup.js'
+			}
+		}
+	} else {
+		return {
+			plugins: configPlugins(mode),
+			server: configServer(DOMAIN),
+			resolve: configResolve(__dirname),
+			build: configBuild(),
+		}
 	}
-})
+});

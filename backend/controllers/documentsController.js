@@ -1,5 +1,5 @@
 import asyncHandler from 'express-async-handler'
-import fileUpload from './fileUpload.js'
+import fileUpload from './fileUpload'
 
 const documentsController = {
 

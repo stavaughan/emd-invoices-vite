@@ -1,23 +1,83 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true,
-        "node": true
-    },
     "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended"
-    ],
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 12,
-        "sourceType": "module"
-    },
-    "plugins": [
-        "react"
+        "plugin:import/recommended",
+        "plugin:prettier/recommended"
     ],
     "rules": {
-    }
+        "prettier/prettier": [
+            "error",
+            {
+                "singleQuote": true,
+                "endOfLine": "auto"
+            }
+        ]
+    },
+    "overrides": [
+        {
+            "files": [
+                "backend/**/*.js"
+            ],
+            "plugins": [
+                "unused-imports",
+                "simple-import-sort"
+            ],
+            "extends": [
+                "plugin:prettier/recommended"
+            ],
+            "parserOptions": {
+                "project": "./jsconfig.json",
+                "ecmaVersion": "latest",
+                "sourceType": "module"
+            },
+            "rules": {
+                "prettier/prettier": [
+                    "error",
+                    {
+                        "singleQuote": true,
+                        "endOfLine": "auto"
+                    }
+                ],
+                // Allow to use `import` without file extension
+                "import/extensions": [
+                    "error",
+                    "ignorePackages",
+                    {
+                        "js": "never",
+                        "jsx": "never",
+                        "": "never"
+                    }
+                ],
+                // Named export is easier to refactor automatically
+                "import/prefer-default-export": "off",
+                // Import configuration for `eslint-plugin-simple-import-sort`
+                "simple-import-sort/imports": "error",
+                // Export configuration for `eslint-plugin-simple-import-sort`
+                "simple-import-sort/exports": "error",
+                "unused-imports/no-unused-imports": "error",
+                "unused-imports/no-unused-vars": [
+                    "error",
+                    {
+                        "argsIgnorePattern": "^_"
+                    }
+                ]
+            }
+        },
+        // Configuration for testing
+        {
+            "files": [
+                "backend/**/*.test.js"
+            ],
+            "plugins": [
+                "jest",
+                "jest-formatting"
+            ],
+            "extends": [
+                "plugin:jest/recommended",
+                "plugin:jest-formatting/recommended"
+            ],
+            "rules": {
+                "jest/no-mocks-import": "off"
+            }
+        }
+    ]
 }

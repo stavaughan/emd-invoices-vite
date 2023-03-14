@@ -1,6 +1,6 @@
-import User from '../models/app/userModel.js'
-import EmailList from '../models/app/emailListModel.js'
-import messages from '../utils/messages.js'
+import User from '../models/app/userModel'
+import EmailList from '../models/app/emailListModel'
+import messages from '../utils/messages'
 
 const msgs = messages.controllers.users;
 

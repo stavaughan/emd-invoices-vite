@@ -1,18 +1,19 @@
-import mongoose from 'mongoose'
-import addressSchema from './addressModel.js'
+import mongoose from 'mongoose';
+
+import addressSchema from './addressModel';
 
 const addressesSchema = new mongoose.Schema(
-    {
-        physical: addressSchema,
-        sameAsPhysical: {
-            type: Boolean,
-            default: true
-        },
-        mailing: addressSchema
+  {
+    physical: addressSchema,
+    sameAsPhysical: {
+      type: Boolean,
+      default: true,
     },
-    {
-        _id : false
-    }
-)
+    mailing: addressSchema,
+  },
+  {
+    _id: false,
+  }
+);
 
-export default addressesSchema
+export default addressesSchema;

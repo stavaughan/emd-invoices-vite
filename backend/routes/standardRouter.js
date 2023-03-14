@@ -1,30 +1,28 @@
-import express from 'express'
-import requestControllers from '../controllers/requestControllers.js';
-import { protect } from '../middleware/authMiddleware.js'
+import express from 'express';
+
+import requestControllers from '../controllers/requestControllers';
+import { protect } from '../middleware/authMiddleware';
 
 const {
-    getItem,
-    getItems,
-    setItem,
-    setItems,
-    updateItem,
-    updateMany,
-    deleteItem
+  getItem,
+  getItems,
+  setItem,
+  setItems,
+  updateItem,
+  updateMany,
+  deleteItem,
 } = requestControllers;
 
 const standardRouter = express.Router();
 
-standardRouter.route('/')
-    .get(protect, getItems)
-    .post(protect, setItem);
+standardRouter.route('/').get(protect, getItems).post(protect, setItem);
 
-standardRouter.route('/:id')
-    .get(protect, getItem)
-    .patch(protect, updateItem)
-    .delete(protect, deleteItem);
+standardRouter
+  .route('/:id')
+  .get(protect, getItem)
+  .patch(protect, updateItem)
+  .delete(protect, deleteItem);
 
-standardRouter.route('/many')
-    .post(protect, setItems)
-    .put(protect, updateMany);
+standardRouter.route('/many').post(protect, setItems).put(protect, updateMany);
 
-export default standardRouter
+export default standardRouter;

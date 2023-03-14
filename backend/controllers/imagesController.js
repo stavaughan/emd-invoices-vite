@@ -1,11 +1,11 @@
 import asyncHandler from 'express-async-handler'
-import Contact from '../models/app/contactModel.js'
-import User from '../models/app/userModel.js'
-import Business from '../models/invoices/businessModel.js'
-import cloudinaryControllers from './cloudinaryControllers.js'
-import collectionsLogic from './collectionsLogic.js'
-import { compileUser } from './usersLogic.js'
-import getters from '../lib/getters.js'
+import Contact from '../models/app/contactModel'
+import User from '../models/app/userModel'
+import Business from '../models/invoices/businessModel'
+import cloudinaryControllers from './cloudinaryControllers'
+import collectionsLogic from './collectionsLogic'
+import { compileUser } from './usersLogic'
+import getters from '../lib/getters'
 
 const IMAGE_SIZE = {
     '1MB': 1048576,

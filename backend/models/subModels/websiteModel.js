@@ -1,14 +1,13 @@
-import mongoose from 'mongoose'
-import getters from '../../lib/getters.js'
+import mongoose from 'mongoose';
 
-const websiteSchema = new mongoose.Schema(
-    {
-        type: String,
-        url: { 
-            type: String, 
-            set: getters.toLower 
-        }
-    }
-)
+import getters from '../../lib/getters';
 
-export default websiteSchema
+const websiteSchema = new mongoose.Schema({
+  type: String,
+  url: {
+    type: String,
+    set: getters.toLower,
+  },
+});
+
+export default websiteSchema;

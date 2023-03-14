@@ -1,16 +1,16 @@
-import express from 'express'
-import requestControllers from '../controllers/requestControllers.js'
-import { protect } from '../middleware/authMiddleware.js'
+import express from 'express';
+
+import requestControllers from '../controllers/requestControllers';
+import { protect } from '../middleware/authMiddleware';
 const { getItems, setItem, updateItem, deleteItem } = requestControllers;
 
 const settingsRouter = express.Router();
 
-settingsRouter.route('/')
-    .get(getItems)
-    .post(protect, setItem)
-    
-settingsRouter.route('/:id')
-    .put(protect, updateItem)
-    .delete(protect, deleteItem)
+settingsRouter.route('/').get(getItems).post(protect, setItem);
 
-export default settingsRouter
+settingsRouter
+  .route('/:id')
+  .put(protect, updateItem)
+  .delete(protect, deleteItem);
+
+export default settingsRouter;

@@ -1,17 +1,17 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
 
 const encryptSchema = new mongoose.Schema(
-    {
-        cid: String,
-        maskedStr: String,
-        uid: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'User'
-        }
+  {
+    cid: String,
+    maskedStr: String,
+    uid: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
     },
-    {
-        _id : false
-    }
-)
+  },
+  {
+    _id: false,
+  }
+);
 
-export default encryptSchema
+export default encryptSchema;

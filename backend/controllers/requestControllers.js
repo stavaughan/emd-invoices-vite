@@ -1,8 +1,8 @@
 import dotenv from 'dotenv'
 dotenv.config()
 import asyncHandler from 'express-async-handler'
-import api from '../config/api.js'
-import controllerLogic from './controllerLogic.js'
+import api from '../config/api'
+import controllerLogic from './controllerLogic'
 
 const {
     getCollectionItem,

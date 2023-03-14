@@ -1,5 +1,5 @@
 import nodemailer from 'nodemailer'
-import { emailHTML } from '../utils/emailHTML.js'
+import { emailHTML } from '../utils/emailHTML'
 
 const resetLink = (path, token) => {
     const url = process.env.NODE_ENV === 'development' ? process.env.DOMAIN : process.env.DOMAIN_PROD;

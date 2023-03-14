@@ -1,7 +1,7 @@
-import Contact from '../models/app/contactModel.js'
-import User from '../models/app/userModel.js'
-import EmailList from '../models/app/emailListModel.js'
-import messages from '../utils/messages.js'
+import Contact from '../models/app/contactModel'
+import User from '../models/app/userModel'
+import EmailList from '../models/app/emailListModel'
+import messages from '../utils/messages'
 
 const { users } = messages.controllers;
 

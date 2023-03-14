@@ -1,7 +1,7 @@
-import controllerLogic from './controllerLogic.js'
+import controllerLogic from './controllerLogic'
 import asyncHandler from 'express-async-handler'
-import User from '../models/app/userModel.js'
-import usersLogic from './usersLogic.js'
+import User from '../models/app/userModel'
+import usersLogic from './usersLogic'
 
 const {
     getCollectionItem,

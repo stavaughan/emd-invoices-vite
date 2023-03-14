@@ -1,21 +1,22 @@
-import mongoose from 'mongoose'
-import getters from '../../lib/getters.js'
+import mongoose from 'mongoose';
+
+import getters from '../../lib/getters';
 
 const emailListSchema = new mongoose.Schema(
-    {
-        email: {
-            type: String,
-            required: [true, 'Please add your email'],
-            unique: true,
-            set: getters.toLower
-        },
-        approved: Boolean
+  {
+    email: {
+      type: String,
+      required: [true, 'Please add your email'],
+      unique: true,
+      set: getters.toLower,
     },
-    {
-        timestamps: true
-    }
-)
+    approved: Boolean,
+  },
+  {
+    timestamps: true,
+  }
+);
 
-const EmailList = mongoose.model('EmailList', emailListSchema, 'email-list')
+const EmailList = mongoose.model('EmailList', emailListSchema, 'email-list');
 
-export default EmailList
+export default EmailList;

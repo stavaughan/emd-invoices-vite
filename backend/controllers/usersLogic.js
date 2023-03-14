@@ -1,19 +1,19 @@
 import bcrypt from 'bcryptjs'
-import tokenHandler from '../utils/tokenHandler.js'
-import Contact from '../models/app/contactModel.js'
-import User from '../models/app/userModel.js'
-import EmailList from '../models/app/emailListModel.js'
-import messages from '../utils/messages.js'
-import userEmailLogic from './userEmailLogic.js'
-import userContactLogic from './userContactLogic.js'
-import passwordLogic from '../utils/passwordLogic.js'
-import permissions from '../config/permissions.js'
+import tokenHandler from '../utils/tokenHandler'
+import Contact from '../models/app/contactModel'
+import User from '../models/app/userModel'
+import EmailList from '../models/app/emailListModel'
+import messages from '../utils/messages'
+import userEmailLogic from './userEmailLogic'
+import userContactLogic from './userContactLogic'
+import passwordLogic from '../utils/passwordLogic'
+import permissions from '../config/permissions'
 import {
     sendResetEmail,
     sendActivationEmail,
     sendEmailUpdateNotice
-} from './mailer.js'
-import collectionsLogic from './collectionsLogic.js'
+} from './mailer'
+import collectionsLogic from './collectionsLogic'
 
 const msgs = messages.controllers.users;
 

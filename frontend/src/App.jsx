@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { protectedRoutes, RequireAuth } from 'Routes';
+import { protectedRoutes, RequireAuth } from '@/ProtectedRoutes';
 import { Routes, Route } from 'react-router-dom';
 import { SelectedPage, DataLayer } from '@/Layout';
 import { useSelector } from 'react-redux';
@@ -18,17 +18,17 @@ import {
 } from '@/pages/Login';
 
 import 'react-toastify/dist/ReactToastify.css';
-import 'react-loading-skeleton/dist/skeleton.css';
 
 faIconList();
 
 const App = () => {
 
-	useLoadData({ dataName: 'settings' })
-	const { user } = useSelector(state => state.auth)
+	useLoadData({ dataName: 'settings' });
+  const { user } = useSelector(state => state.auth)
 
 	return (
 		<SettingsContextProvider>
+      <div className="hide">Site loaded...</div>
 			<Routes>
 				<Route path="/" element={<DataLayer user={user} />}>
 					<Route index element={<SelectedPage pageID="home" />} />
@@ -51,8 +51,6 @@ const App = () => {
 						)
 					})}
 					<Route path="unauthorized" element={<Pages.Unauthorized />} />
-					<Route path="/api/*" element={<Pages.Unauthorized />} />
-					<Route path='*' element={<Pages.NotFound />} />
 				</Route>
 				<Route path="/login" element={<Login />} />
 				<Route path="/activate" element={<ActivateAccount />} />
@@ -63,6 +61,8 @@ const App = () => {
 				<Route path="/account-setup" element={<SetupNewAccount />} />
 				<Route path='/legal/terms-of-use' element={<Pages.TermsOfService />} />
 				<Route path='/legal/privacy-policy' element={<Pages.PrivacyPolicy />} />
+        <Route path="/api" element={<Pages.Unauthorized />} />
+				<Route path='/*' element={<Pages.NotFound />} />
 			</Routes>
 		</SettingsContextProvider>
 	);

@@ -1,14 +1,13 @@
-import mongoose from 'mongoose'
-import accountLoginSchema from './accountLoginModel.js'
+import mongoose from 'mongoose';
 
-const socialSchema = new mongoose.Schema(
-    {
-        media: String,
-        url: String,
-        profileName: String,
-        accountLink: String,
-        login: accountLoginSchema
-    }
-)
+import accountLoginSchema from './accountLoginModel';
 
-export default socialSchema
+const socialSchema = new mongoose.Schema({
+  media: String,
+  url: String,
+  profileName: String,
+  accountLink: String,
+  login: accountLoginSchema,
+});
+
+export default socialSchema;

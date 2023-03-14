@@ -1,6 +1,6 @@
 import dotenv from 'dotenv'
 dotenv.config()
-import { uploadBucketFile, getBucketFile, deleteBucketFile } from '../config/aws-s3.js'
+import { uploadBucketFile, getBucketFile, deleteBucketFile } from '../config/aws-s3'
 
 const fileUpload = {
 

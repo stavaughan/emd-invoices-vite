@@ -1,15 +1,15 @@
-import usersRouter from './usersRouter.js'
-import standardRouter from './standardRouter.js'
-import imagesRouter from './imagesRouter.js'
-import settingsRouter from './settingsRouter.js'
-import documentsRouter from './documentsRouter.js'
-import esecRouter from './esecRouter.js'
+import documentsRouter from './documentsRouter';
+import esecRouter from './esecRouter';
+import imagesRouter from './imagesRouter';
+import settingsRouter from './settingsRouter';
+import standardRouter from './standardRouter';
+import usersRouter from './usersRouter';
 
 export {
-    usersRouter,
-    standardRouter,
-    settingsRouter,
-    imagesRouter,
-    esecRouter,
-    documentsRouter
-}
+  documentsRouter,
+  esecRouter,
+  imagesRouter,
+  settingsRouter,
+  standardRouter,
+  usersRouter,
+};

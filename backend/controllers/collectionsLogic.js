@@ -1,5 +1,5 @@
-import messages from '../utils/messages.js'
-import permissions from '../config/permissions.js'
+import messages from '../utils/messages'
+import permissions from '../config/permissions'
 
 const { collections, users } = messages.controllers;
 
