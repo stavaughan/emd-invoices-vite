@@ -10,20 +10,22 @@ import Unauthorized from './Unauthorized';
 import Admin from './Admin/Admin';
 import PrivacyPolicy from './Legal/PrivacyPolicy';
 import TermsOfService from './Legal/TermsOfService';
+import Credits from './Credits/Credits';
 
 const Pages = {
-	HomePage,
-    Invoices,
-	Customers,
-	Businesses,
-	Products,
-    Admin,
-    UserProfile,
-    UserSettings,
-    NotFound,
-    Unauthorized,
-	PrivacyPolicy,
-	TermsOfService
+  HomePage,
+  Invoices,
+  Customers,
+  Businesses,
+  Credits,
+  Products,
+  Admin,
+  UserProfile,
+  UserSettings,
+  NotFound,
+  Unauthorized,
+  PrivacyPolicy,
+  TermsOfService
 };
 
 export default Pages;

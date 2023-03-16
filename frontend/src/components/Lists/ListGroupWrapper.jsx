@@ -7,15 +7,15 @@ import clsx from "clsx";
 
 const ListGroupWrapper = ({ type, className, children }) => {
 
-    return (
-        <ul className={clsx(
-			'list-group',
-			`list-group-${type === 'numberedFlush' ? 'flush list-group-numbered' : type}`,
-			className
-		)}>
-            {children}
-        </ul>
-    );
+  return (
+    <ul className={clsx(
+      'list-group',
+      `list-group-${type === 'numberedFlush' ? 'flush list-group-numbered' : type}`,
+      className
+    )}>
+      {children}
+    </ul>
+  );
 };
 
 export default ListGroupWrapper;

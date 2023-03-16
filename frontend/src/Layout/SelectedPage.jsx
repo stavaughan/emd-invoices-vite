@@ -1,43 +1,38 @@
 import { useMemo } from 'react';
-import { SiteModals, useLayoutLogic } from '.';
+import { Layout, SiteModals, useLayoutLogic } from '.';
 import { PageHeader } from '@/components/Page';
 import { SiteHeader, Footer } from '@/components/Site';
 import { FormInputsProvider } from '@/contexts/form-inputs-context';
 import { BackToTop } from '@/components/Widgets';
 import ErrorBoundary from '@/state/ErrorBoundary';
-import { Loader } from '@/components/Loader'
+import { Loader } from '@/components/Loader';
 import { useLoading } from '@/hooks';
 
 const SelectedPage = ({ pageID }) => {
+  const { getSelectedPage } = useLayoutLogic();
 
-	const { getSelectedPage } = useLayoutLogic();
+  const { loading } = useLoading();
 
-	const { loading } = useLoading();
+  const { Page, unitLabel, pageHeader } = useMemo(() => {
+    return getSelectedPage(pageID);
+  }, [getSelectedPage, pageID]);
 
-	const { Page, groupPageIDs, unitLabel } = useMemo(() => {
-		return getSelectedPage(pageID)
-	}, [getSelectedPage, pageID]);
+  if (!Page) return null;
 
-	return (
-		<FormInputsProvider pageID={pageID}>
-      <div className="text-center font-bold text-danger">SelectedPage loaded...</div>
-			{loading && <Loader />}
-			<SiteModals pageID={pageID} />
-			<div className="content">
-				<SiteHeader loading={loading} />
-				<main>
-					{groupPageIDs.includes(pageID) && (
-						<PageHeader pageID={pageID} />
-					)}
-					<ErrorBoundary>
-						<Page unitLabel={unitLabel} pageID={pageID} />
-					</ErrorBoundary>
-				</main>
-			</div>
-			<BackToTop />
-			<Footer />
-		</FormInputsProvider>
-	);
+  return (
+    <FormInputsProvider pageID={pageID}>
+      {loading && <Loader />}
+      <SiteModals pageID={pageID} />
+      <Layout header={<SiteHeader loading={loading} />}>
+        {pageHeader && <PageHeader pageID={pageID} />}
+        <ErrorBoundary>
+          <Page unitLabel={unitLabel} pageID={pageID} />
+        </ErrorBoundary>
+      </Layout>
+      <Footer />
+      <BackToTop />
+    </FormInputsProvider>
+  );
 };
 
 export default SelectedPage;

@@ -54,21 +54,6 @@ const UserLinks = () => {
 			)}
 			data-popper-placement="bottom-end"
 		>
-			{SiteData?.headerLinks.map(link => (
-				<li key={link.modalID}>
-					<button
-						className="dropdown-item"
-						{...link?.modalID && controlProps.modalOpen(link.modalID)}
-					>
-						<NavIconLabel
-							icon={link.icon}
-							label={link.label}
-							small={isXSmall}
-						/>
-					</button>
-				</li>
-			))}
-			{!isXSmall && <DDDivider />}
 			{userDDdata.map(item => (
 				<li key={item.pid}>
 					<NavLink

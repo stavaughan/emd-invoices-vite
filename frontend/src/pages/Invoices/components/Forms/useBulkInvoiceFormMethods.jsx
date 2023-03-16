@@ -95,6 +95,7 @@ const useBulkInvoiceFormMethods = () => {
 				clientID,
 				contrID,
 				groupID: groupIDPfx + busPfx + 'G1',
+        // groupID: newGroupNumber(groupIDPfx, busPfx),
 				priceType: "job", // TODO: use Dropdown for this
 				taxRate: 0,
 				invoicePrice: price,

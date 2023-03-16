@@ -5,7 +5,9 @@ const {
 	AddressBook,
 	UserFolder,
 	MenuIcon,
-	SelectedFile
+	SelectedFile,
+  ClipboardCheck,
+  ListIcon
 } = HeaderIcons;
 
 const PageObjects = {
@@ -20,6 +22,16 @@ const PageObjects = {
 			pageHeader: true,
 			pageGroup: 'Home',
 			baseTitle: 'Navigation',
+			allowedUsers: ['admin', 'read']
+		},
+		{
+			_id: "credits",
+			label: "Credits",
+			path: 'credits',
+			page: 'Credits',
+      icon: <ListIcon />,
+			pageHeader: true,
+			baseTitle: 'Credits',
 			allowedUsers: ['admin', 'read']
 		},
 		{
@@ -114,7 +126,7 @@ const PageObjects = {
 	groupPages: (group) => PageObjects.PATHS.filter(page => page.pageGroup === group),
 
 	HEADER_NAV: (pid) => PageObjects
-		.groupPages(PageObjects.FILE(pid).pageGroup)
+		.groupPages(PageObjects.FILE(pid)?.pageGroup)
 		.map(page => ({
 			_id: page._id,
 			allowedUsers: page?.allowedUsers,

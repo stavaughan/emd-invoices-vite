@@ -57,6 +57,8 @@ const invoiceSchema = new mongoose.Schema(
     },
     payments: [invoicePaymentsSchema],
     rendered_services: [invoiceServicesSchema],
+    groupID: String,
+    groupDate: String,
   },
   {
     timestamps: true,

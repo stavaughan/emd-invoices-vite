@@ -9,7 +9,7 @@ const AllItemsContainer = ({ visible, printRef, children }) => {
 			className={visible}
 		>
 			<Card
-				className="sticky-lg-top"
+				className="sticky-lg-top shadow-sm"
 				printRef={printRef}
 			>
 				{children}

@@ -1,23 +1,16 @@
 import React from 'react'
-import { Header, Footer } from '@/components/Site';
-import { PageHeader } from '@/components/Page';
 
-const Layout = ({ settings, isLoading, children }) => {
+const Layout = ({ header, className = 'content', children }) => {
 
 	return (
-		<>
-			<div className="content">
-				<Header
-					settings={settings}
-					isLoading={isLoading}
-				/>
-				<main>
-					<PageHeader />
-					{children}
-				</main>
-			</div>
-			<Footer settings={settings} />
-		</>
+      <div className="content-wrap">
+        <div className={className}>
+          {header}
+          <main>
+            {children}
+          </main>
+        </div>
+      </div>
 	);
 };
 

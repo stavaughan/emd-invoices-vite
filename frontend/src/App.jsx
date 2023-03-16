@@ -7,6 +7,7 @@ import { SettingsContextProvider } from '@/contexts/settings-context';
 import { useLoadData } from '@/hooks';
 import { faIconList } from '@/theme';
 import Pages from '@/pages';
+import { Loader } from '@/components/Loader';
 import {
 	Login,
 	ForgotPassword,
@@ -23,8 +24,12 @@ faIconList();
 
 const App = () => {
 
-	useLoadData({ dataName: 'settings' });
-  const { user } = useSelector(state => state.auth)
+	const { isLoading } = useLoadData({ dataName: 'settings' });
+  const { user } = useSelector(state => state.auth);
+
+  if (isLoading) {
+    return <Loader />
+  }
 
 	return (
 		<SettingsContextProvider>
@@ -50,7 +55,10 @@ const App = () => {
 							</Route>
 						)
 					})}
+          <Route path='/credits' element={<SelectedPage pageID="credits" />} />
 					<Route path="unauthorized" element={<Pages.Unauthorized />} />
+          {/* <Route path="api" element={<Pages.Unauthorized />} />
+				  <Route path='*' element={<Pages.NotFound />} /> */}
 				</Route>
 				<Route path="/login" element={<Login />} />
 				<Route path="/activate" element={<ActivateAccount />} />
@@ -63,6 +71,7 @@ const App = () => {
 				<Route path='/legal/privacy-policy' element={<Pages.PrivacyPolicy />} />
         <Route path="/api" element={<Pages.Unauthorized />} />
 				<Route path='/*' element={<Pages.NotFound />} />
+
 			</Routes>
 		</SettingsContextProvider>
 	);

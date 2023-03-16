@@ -7,6 +7,7 @@ const PaymentMethodInputs = ({
 	setEntering,
 	initialInvoice,
 	setShowError,
+  selectedID,
 	setPayment,
 	payment
 }) => {
@@ -37,7 +38,7 @@ const PaymentMethodInputs = ({
 	return (
 		<GroupInputRow label="Payment Details">
 			<InputCol.Dropdown
-				id="invoicepaymentmethod"
+				id={`invoicepaymentmethod_${selectedID}`}
 				cols="8 sm-6"
 				optionData={['check', 'card'].map(_ => ({ _id: _, label: _ }))}
 				label="Payment Method"
@@ -47,7 +48,7 @@ const PaymentMethodInputs = ({
 			{(payment?.method && payment.method === 'check') && (
 				<InputCol.Text
 					cols="8 sm-6"
-					id="invoicepaymentbycheck"
+					id={`invoicepaymentbycheck_${selectedID}`}
 					label="Check Number"
 					value={payment?.methodNo}
 					onChange={onSelectMethodNo}
@@ -55,7 +56,7 @@ const PaymentMethodInputs = ({
 			)}
 			{(payment?.method && payment.method !== 'check') && (
 				<InputCol.NumberFormat
-					id="invoicepaymentbycc"
+					id={`invoicepaymentbycc_${selectedID}`}
 					cols="8 sm-6"
 					value={payment?.methodNo}
 					onChange={onSelectMethodNo}

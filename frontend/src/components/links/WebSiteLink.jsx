@@ -1,25 +1,31 @@
-import { useMemo, useCallback } from 'react';
+import { useMemo } from 'react';
 import { controlProps } from '@/globals/js';
+import { useMobile } from '@/hooks';
 
-const WebSiteLink = ({ url, shortLabel, className, length }) => {
+const WebSiteLink = ({
+  url,
+  shortLabel,
+  className,
+  length = 35
+}) => {
 
-	const shortUrl = useCallback((url, label, length = 55) => {
-		const urlLabel = url.replace('https://', '');
-		const lengthTest = (urlLabel.length > (length * .5) && window.width < 600) || urlLabel.length > length;
-		return lengthTest ? label : urlLabel;
-	}, []);
+  const { isXSmall } = useMobile();
 
-	const siteName = useMemo(() => shortUrl(url, shortLabel, length), [url, shortLabel, length, shortUrl]);
+  const shortUrl = useMemo(() => {
+    const urlLabel = url.split('//')[1];
+    const lengthTest = (urlLabel?.length > (length * .5) && isXSmall) || urlLabel?.length > length;
+    return lengthTest ? shortLabel : urlLabel;
+  }, []);
 
-    return (
-        <a
-            className={className || ''}
-            {...controlProps.newTab(url)}
-			role="button"
-        >
-            {siteName}
-        </a>
-    );
+  return (
+    <a
+      {...className && { className }}
+      {...controlProps.newTab(url)}
+      role="button"
+    >
+      {shortUrl}
+    </a>
+  );
 };
 
 export default WebSiteLink;

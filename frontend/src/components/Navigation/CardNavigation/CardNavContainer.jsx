@@ -6,33 +6,28 @@ import { PageLinksGroup } from './components';
 
 const CardNavContainer = ({ notReady, userID, heading, card }) => {
 
-	const { isXSmall } = useMobile();
+  const { isXSmall } = useMobile();
 
-    return (
-        <Row className="g-3 mb-5">
-            <SectionIconTitle
-                icon={heading.icon}
-                iconColor={heading.iconColor}
-                className={isXSmall ? ' mb-3' : ''}
-                title={heading.title}
-                titleClass={clsx(heading.titleColor, isXSmall && 'pe-2')}
-                description={heading.description}
-                subTitleClass={heading.subTitleColor}
-                stylesTitle={{
-					letterSpacing: isXSmall ? '.05rem' : '.09rem',
-					width: isXSmall ? '' : '60%'
-				}}
-                stylesSubTitle={{ letterSpacing: '.06rem' }}
-            />
-            <div className="col-12">
-                <PageLinksGroup
-                    userID={userID}
-                    notReady={notReady}
-                    card={card}
-                />
-            </div>
-        </Row>
-    )
+  return (
+    <div className="d-flex flex-column gap-3">
+      <SectionIconTitle
+        icon={heading.icon}
+        iconColor={heading.iconColor}
+        className={isXSmall ? ' mb-3' : ''}
+        title={heading.title}
+        titleClass={clsx(heading.titleColor, isXSmall && 'pe-2')}
+        description={heading.description}
+        subTitleClass={heading.subTitleColor}
+        stylesTitle={{ letterSpacing: isXSmall ? '.05rem' : '.09rem' }}
+        stylesSubTitle={{ letterSpacing: '.06rem' }}
+      />
+      <PageLinksGroup
+        userID={userID}
+        notReady={notReady}
+        card={card}
+      />
+    </div>
+  )
 }
 
 export default CardNavContainer

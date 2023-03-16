@@ -10,10 +10,6 @@ const SnapShotFooter = ({
 	const change1Test = performance?.amount && !isNaN(performance?.amount)
 	const change2Test = performance?.percent && !isNaN(performance?.percent)
 
-	console.log({
-		performance: performance?.percent,
-	})
-
 	return (
 		<CardFooter
 			className="d-flex justify-content-center align-items-center"

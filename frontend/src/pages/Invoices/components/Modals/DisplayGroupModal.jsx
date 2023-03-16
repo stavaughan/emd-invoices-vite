@@ -6,10 +6,11 @@ import { SiteData } from '@/data';
 import { Suspense, useMemo, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { ComponentToPrint } from '@/services';
+import { Global } from '@/globals/js';
 import { InvoicesGroup } from '..';
 import { useMobile } from '@/hooks';
 
-const DisplayGroupModal = () => {
+const DisplayGroupModal = ({ groupName = 'invoice' }) => {
 
 	const { isXSmall } = useMobile();
 
@@ -20,14 +21,14 @@ const DisplayGroupModal = () => {
 	const firstInvoice = filteredInvoices[0];
 
 	const documentTitle = useMemo(() => {
-		return `invoice_group_${firstInvoice?.groupID}`;
-	}, [firstInvoice?.groupID])
+		return `${groupName}_group_${firstInvoice?.groupID}`;
+	}, [firstInvoice?.groupID, groupName])
 
 	return (
 		<ModalPrintWrapper
 			modalID={SiteData.modalIDs.invoicesGroup}
 			modalName={SiteData.modalIDs.invoicesGroup}
-			modalTitle={`Design Group ${firstInvoice?.groupID}`}
+			modalTitle={`${Global.upperCaseFirst(groupName)} Group ${firstInvoice?.groupID}`}
 		>
 			{filteredInvoices?.length ? (
 				<Suspense fallback={<Loader />}>
@@ -41,6 +42,7 @@ const DisplayGroupModal = () => {
 							<InvoicesGroup
 								printRef={printRef}
 								invoices={filteredInvoices}
+                groupName={groupName}
 								invoice={firstInvoice}
 							/>
 						</ComponentToPrint>

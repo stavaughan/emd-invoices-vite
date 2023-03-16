@@ -120,7 +120,7 @@ app.use(`${PREFIX}/esec`, esecRouter);
 // pdf files stored in file system
 app.use(`${PREFIX}/document-files`, documentsRouter);
 
-//const __dirname = currDir(import.meta.url);
+// const __dirname = currDir(import.meta.url);
 
 if (process.env.NODE_ENV === 'development') {
   app.get('/*', (_req, res) => res.send(messages.noAccess()));

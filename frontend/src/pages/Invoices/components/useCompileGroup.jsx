@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react'
 import { useSelector } from 'react-redux';
-import { amountUSD } from '@/globals/js';
+import { amountUSD, Global } from '@/globals/js';
 import clsx from 'clsx';
 
 const Emphasize = ({ children, bold }) => (
@@ -12,7 +12,7 @@ const Emphasize = ({ children, bold }) => (
 	</span>
 );
 
-const useCompileGroup = (invoices, invoice) => {
+const useCompileGroup = (invoices, invoice, groupName) => {
 
 	const { businesses } = useSelector(state => state.businesses)
 
@@ -41,14 +41,14 @@ const useCompileGroup = (invoices, invoice) => {
 	const header = useMemo(() => {
 		const paid = invoice?.paidStatus === 'Paid';
 		const title = paid
-			? `Designs paid as of ${payment?.date}`
-			: `Designs completed as of ${invoice?.date}`;
+			? `${Global.upperCaseFirst(groupName)}s paid as of ${payment?.date}`
+			: `${Global.upperCaseFirst(groupName)}s completed as of ${invoice?.date}`;
 		const total = <Emphasize bold>{amountUSD({ num: totalAmount, dec: 2 })}</Emphasize>;
 		const subtitle = paid
 			? <span>Paid{' '}{total}{' '}via{' '}{payment?.method}{' '}ending{' '}in{' '}{payment?.methodNo}</span>
 			: <span>Total{' '}amount{' '}submitted:{' '}{total}</span>;
 		return { title, subtitle };
-	}, [invoice?.paidStatus, invoice?.date, totalAmount, payment])
+	}, [invoice?.paidStatus, invoice?.date, totalAmount, payment, groupName])
 
 	return { business, header }
 }

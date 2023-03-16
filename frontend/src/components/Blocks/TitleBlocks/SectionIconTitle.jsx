@@ -1,6 +1,5 @@
 import { FontAwesomeIcon as FAIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
-import { Col } from '@/components/HTML';
 import TitleDescriptionLarge from './TitleDescriptionLarge';
 import { useMobile } from '@/hooks';
 
@@ -20,14 +19,11 @@ const SectionIconTitle = ({
 	const { isXSmall } = useMobile();
 
 	return (
-		<Col cols="12" className={clsx(
-			"d-flex align-items-start mb-4",
-			isXSmall && "me-3"
-		)}>
+		<div className="d-flex justify-content-start align-items-center mb-4 gap-3">
 			{icon && (
 				<div className={clsx(
 					Classes['icon-circle'],
-					'flex-shrink-0 ms-1 me-4 my-auto',
+					'flex-shrink-0',
 					iconColor
 				)}>
 					<FAIcon icon={icon} />
@@ -40,8 +36,9 @@ const SectionIconTitle = ({
 				subTitleClass={subTitleClass}
 				stylesTitle={stylesTitle}
 				stylesSubTitle={stylesSubTitle}
+        isXSmall={isXSmall}
 			/>
-		</Col>
+		</div>
 	)
 }
 

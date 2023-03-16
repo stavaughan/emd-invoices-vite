@@ -8,4 +8,5 @@ export { default as pageLayouts } from './pageLayouts';
 export { default as siteMessages } from './siteMessages';
 export { default as socialMedia } from './socialMedia';
 export { default as formsData } from './formsData';
+export { default as CreditsData } from './CreditsData';
 export { default as USStates } from './USStates';

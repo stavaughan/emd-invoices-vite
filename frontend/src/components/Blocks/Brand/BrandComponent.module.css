@@ -1,8 +1,8 @@
 .emd-brand--name {
     font-family: var(--emd-title-font);
-    font-weight: 400;
+    font-weight: 500;
     font-size: 1.95rem;
-    letter-spacing: .08rem;
+    letter-spacing: .05rem;
 }
 
 .emd-brand--trademark {
@@ -41,7 +41,7 @@
 .emd-brand--non-color.emd-brand--small .flex-grow-1 .emd-brand--name {
     color: #edf2f9;
     font-size: .81rem;
-    font-weight: 400;
+    font-weight: 500;
     letter-spacing: .05rem;
 }
 

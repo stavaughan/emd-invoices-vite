@@ -5,6 +5,9 @@ import { useSnapShot } from './SnapShot';
 
 const useCompileInvoices = () => {
 
+  	// TODO: create a 'invoiceSettings' collection for user customizations as this is for a real world scenario from a private repot. Just don't have time to do it now.
+	const customGroupName = 'design';
+
 	const { loading } = useLoadInvoices();
 
 	const { services, invoices, filteredInvoices, selectedInvoice } = useSelector(state => state.invoicedata)
@@ -49,6 +52,7 @@ const useCompileInvoices = () => {
 		groupDisplayed: titleTest[1],
 		selectedInvoice,
 		filteredInvoices,
+    customGroupName,
 		services,
 		customers,
 		businesses,

@@ -23,13 +23,15 @@ const PageHeader = ({ pageID }) => {
 					baseTitle={page?.baseTitle}
 				/>
 			</div>
+      {!['home', 'credits'].includes(pageID) && (
 			<nav aria-label="page group">
-				<Row className="align-items-center">
-					<Col className={clsx(!isXSmall && 'ps-2')}>
-						<NavLinks pageID={pageID} />
-					</Col>
-				</Row>
-			</nav>
+        <Row className="align-items-center">
+          <Col className={clsx(!isXSmall && 'ps-2')}>
+            <NavLinks pageID={pageID} />
+          </Col>
+        </Row>
+      </nav>
+      )}
 		</div>
 	);
 };

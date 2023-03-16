@@ -2,9 +2,9 @@ import React from 'react'
 import { PriceRows, InvoiceTableHead } from '@/pages/Invoice/components';
 import { useCompileGroup } from '.';
 
-const InvoicesGroup = ({ invoices, invoice, printRef }) => {
+const InvoicesGroup = ({ invoices, invoice, printRef, groupName }) => {
 
-	const { business, header } = useCompileGroup(invoices, invoice);
+	const { business, header } = useCompileGroup(invoices, invoice, groupName);
 
 	return (
 		<div

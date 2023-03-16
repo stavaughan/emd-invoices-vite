@@ -32,8 +32,8 @@ const PaymentDateInputs = ({
 
 	return (
 		<DateSelectOrCurrent
-			idCurrent="invoicepaymentdatetoday"
-			idNew="invoicepaymentdatenew"
+			idCurrent={`invoicepaymentdatetoday_${selectedID}`}
+			idNew={`invoicepaymentdatenew_${selectedID}`}
 			label="Payment Date"
 			setDate={onSelectDate}
 			clear={clear}

@@ -8,23 +8,23 @@ import { SiteData } from '@/data';
 
 const InvoicesContext = createContext({
   services: [],
-  sumNums: () => {},
-  newInvoiceNumber: () => {},
-  getAmountDue: () => {},
-  customerName: () => {},
-  customerBusName: () => {},
-  businessOptions: () => {},
-  invoiceDates: () => {},
-  dueDateString: () => {},
-  totalPayments: () => {},
-  lastPayment: () => {},
-  invoiceTotals: () => {},
-  descriptionText: () => {},
-  svcDetail: () => {},
-  displayStamp: () => {},
-  getNetTotal: () => {},
-  paymentMethodLine: () => {},
-  getDueDateObj: () => {},
+  sumNums: () => { },
+  newInvoiceNumber: () => { },
+  getAmountDue: () => { },
+  customerName: () => { },
+  customerBusName: () => { },
+  businessOptions: () => { },
+  invoiceDates: () => { },
+  dueDateString: () => { },
+  totalPayments: () => { },
+  lastPayment: () => { },
+  invoiceTotals: () => { },
+  descriptionText: () => { },
+  svcDetail: () => { },
+  displayStamp: () => { },
+  getNetTotal: () => { },
+  paymentMethodLine: () => { },
+  getDueDateObj: () => { },
   selInvoice: {}
 });
 
@@ -92,9 +92,7 @@ export const InvoicesProvider = props => {
 
   // Used by this file at newInvoiceNumber for use at NewInvoiceFormInputs and BulkInvoiceFormInputs
   const highestInt = useCallback(prevInvoices => {
-    const previdxs = prevInvoices
-      .map(_ => Number(_.number.slice(-3)))
-      .sort((a, b) => a - b);
+    const previdxs = prevInvoices.map(_ => Number(_.number.slice(-3))).sort((a, b) => a - b);
     const lastidx = previdxs.length - 1;
     return previdxs[lastidx];
   }, []);
@@ -127,6 +125,23 @@ export const InvoicesProvider = props => {
     },
     [invoiceNumber, highestInt, invoices]
   );
+
+  // const newGroupNumber = useCallback((busPfx, today, i = 0) => {
+  //   const todayFormats = formats(today);
+  //   const YY = todayFormats?.year2dig;
+  //   const MM = Global.padWithZero(todayFormats?.monthNumeric);
+  //   const DD = Global.padWithZero(today.getDate());
+  //   const groupIDPfx = `${YY}${MM}${DD}`;
+  //   const baseNumber = groupIDPfx + busPfx;
+  //   const prevGroupIDs = invoices?.length ? Global.uniqueArray(invoices.filter(_ => _?.groupID).map(_ => _.groupID)) : [];
+  //   const simBaseNums = prevGroupIDs.filter(_ => _.split('G')[0] === baseNumber);
+  //   const previdxs = simBaseNums.map(_ => Number(_.split('G')[1])).sort((a, b) => a - b);
+  //   const lastidx = previdxs.length - 1;
+  //   const idx = simBaseNums?.length ? previdxs[lastidx] + i + 1 : i + 1;
+  //   return baseNumber + `G${idx}`;
+  // },
+  //   [invoiceNumber, highestInt, invoices]
+  // );
 
   // called by: this file at sumFromPrices, getTotalPaid, getSubTotal, getAmountDue
   const sumNums = useCallback(nums => nums.reduce((a, b) => a + b, 0), []);
@@ -391,6 +406,7 @@ export const InvoicesProvider = props => {
         displayStamp,
         getNetTotal,
         getDueDateObj,
+        // newGroupNumber,
         selInvoice: {
           detailsRowData,
           displayStatus,

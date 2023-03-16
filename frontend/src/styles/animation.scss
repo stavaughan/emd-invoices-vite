@@ -55,13 +55,13 @@
 }
 
 .ease-in {
-	animation: ease-in-view 600ms;
+	animation: ease-in-view 1200ms;
 	animation-timing-function: ease-in-out;
 	animation-fill-mode: backwards;
 }
 
 .ease-out {
-	animation: ease-out-view 600ms;
+	animation: ease-out-view 1200ms;
 	animation-timing-function: ease-in-out;
 	animation-fill-mode: backwards;
 }

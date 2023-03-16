@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { SvgIcons } from '@/components/SVGs';
-import { AlertPage, Layout } from '@/Layout';
+import { AlertPage, Headerless } from '@/Layout';
 import ErrorBoundary from '@/state/ErrorBoundary';
 
 const Unauthorized = () => {
@@ -21,7 +21,7 @@ const Unauthorized = () => {
 	}, [navigate]);
 
 	return (
-		<Layout
+		<Headerless
 			settings={settings}
 			isLoading={isLoading}
 		>
@@ -33,7 +33,7 @@ const Unauthorized = () => {
 					onClickHandler={() => navigate('/')}
 				/>
 			</ErrorBoundary>
-		</Layout>
+		</Headerless>
 	)
 }
 

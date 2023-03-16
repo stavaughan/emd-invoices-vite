@@ -1,4 +1,3 @@
-
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
@@ -6,5 +5,8 @@
     "source.fixAll.eslint": true
   },
   "css.validate": false,
-  "scss.validate": false
+  "scss.validate": false,
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

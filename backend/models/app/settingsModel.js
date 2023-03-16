@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
 
 import getters from '../../lib/getters';
-import quoteSchema from '../subModels/quoteModel';
 import socialSchema from '../subModels/socialModel';
 
 const settingsSchema = new mongoose.Schema(
@@ -39,7 +38,6 @@ const settingsSchema = new mongoose.Schema(
         required: true,
       },
     },
-    quoteData: [quoteSchema],
     social: [socialSchema],
     developer: {
       name: {

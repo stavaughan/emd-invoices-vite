@@ -1,40 +1,37 @@
 import { Col, Row } from '@/components/HTML';
-import { useMobile } from '@/hooks';
 import clsx from 'clsx';
 
 const TitleDescriptionLarge = ({
-	title,
-	description,
-	titleClass,
-	subTitleClass,
-	stylesTitle,
-	stylesSubTitle
+  title,
+  description,
+  titleClass,
+  subTitleClass,
+  stylesTitle,
+  stylesSubTitle,
+  isXSmall
 }) => {
 
-	const { isXSmall } = useMobile();
-
-	return (
-		<Row>
-			<Col cols="12" className="my-auto">
-				<h2
-					className={clsx(titleClass, isXSmall && 'h3')}
-					{...stylesTitle && { style: stylesTitle }}
-				>
-					{title}
-				</h2>
-			</Col>
-			{(description && !isXSmall) && (
-				<Col cols="12" className="my-auto w-75">
-					<div
-						className={subTitleClass}
-						{...stylesSubTitle && { style: stylesSubTitle }}
-					>
-						{description}
-					</div>
-				</Col>
-			)}
-		</Row>
-	)
+  return (
+    <div className="d-flex flex-column align-items-start">
+      <h2
+        className={titleClass}
+        style={{
+          ...stylesTitle,
+          ...isXSmall && { marginBottom: '0' }
+        }}
+      >
+        {title}
+      </h2>
+      {!isXSmall && (
+        <div
+          className={subTitleClass}
+          {...stylesSubTitle && { style: stylesSubTitle }}
+        >
+          {description}
+        </div>
+      )}
+    </div>
+  )
 }
 
 export default TitleDescriptionLarge

@@ -26,7 +26,10 @@ const SelectedItemContainer = ({
 	};
 
 	return (
-		<Card printRef={printRef}>
+		<Card
+      printRef={printRef}
+      className="shadow-sm"
+    >
 			<CardTitleActionsHeader
 				title={`Selected ${Global.upperCaseFirst(unitLabel)}`}
 				btnCount={btnCount}

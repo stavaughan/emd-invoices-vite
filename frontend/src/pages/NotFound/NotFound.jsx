@@ -5,16 +5,16 @@ import { useNavigate } from 'react-router-dom';
 import { CenteredBrand } from '@/components/Blocks/Brand';
 import { SettingsContext } from '@/contexts';
 import { SvgIcons } from '@/components/SVGs';
-import { AlertPage, Layout } from '@/Layout';
+import { AlertPage, Headerless } from '@/Layout';
 import ErrorBoundary from '@/state/ErrorBoundary';
 
 const NotFound = () => {
 
-	const { settings, isLoading } = useSelector(state => state.setting);
+	const { settings, isLoading } = useSelector(state => state.settings);
 
 	const navigate = useNavigate();
 
-	const { isSmall } = useContext(SettingsContext).screen;
+	const { screen } = useContext(SettingsContext);
 
 	const onClickHandler = (e) => {
 		e.preventDefault()
@@ -22,24 +22,23 @@ const NotFound = () => {
 	};
 
 	return (
-		<Layout
+		<Headerless
 			settings={settings}
 			isLoading={isLoading}
 		>
 			<ErrorBoundary>
 				<AlertPage
-					h1={true}
 					title="404 Page Not Found"
 					label="Return Home"
 					BackGroundSVG={SvgIcons.NotFoundSVG}
 					BrandBlock={(
 						<div className={clsx(
 							'container position-relative',
-							isSmall && 'mt-2'
+							screen?.isSmall && 'mt-2'
 						)}>
 							<CenteredBrand
 								loading={isLoading}
-								isSmall={isSmall}
+								isSmall={screen?.isSmall}
 								settings={settings}
 							/>
 						</div>
@@ -47,7 +46,7 @@ const NotFound = () => {
 					onClickHandler={onClickHandler}
 				/>
 			</ErrorBoundary>
-		</Layout>
+		</Headerless>
 	);
 };
 

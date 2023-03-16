@@ -3,22 +3,20 @@ import { HomeLinks, useHomePage } from './components';
 
 const HomePage = () => {
 
-	const { homePageLinkGroups } = useHomePage();
+  const { homePageLinkGroups } = useHomePage();
 
-    return (
-        <div className="bd-masthead">
-            <PageContainer>
-                <section>
-                    {homePageLinkGroups.map(group => (
-                        <HomeLinks
-                            key={group.title.replaceAll(' ', '')}
-                            group={group}
-                        />
-                    ))}
-                </section>
-            </PageContainer>
-        </div>
-    );
+  return (
+    <PageContainer className="p-3">
+      <section>
+        {homePageLinkGroups.map(group => (
+          <HomeLinks
+            key={group.title.replaceAll(' ', '')}
+            group={group}
+          />
+        ))}
+      </section>
+    </PageContainer>
+  );
 };
 
 export default HomePage;

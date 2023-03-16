@@ -22,13 +22,13 @@ const BrandComponent = ({
 			small && Classes['emd-brand--small']
 		)}>
 			<div className={Classes['emd-brand--logo']}>
-				{(isLoading || !name) ? <SkeletonElem width="55" height="80" /> : <BrandLogo color={color} width="55"/>}
+				{(isLoading || !name)
+          ? <SkeletonElem width="55" height="80" />
+          : <BrandLogo color={color} width="55"/>}
 			</div>
 			<div>
 				<div className={clsx(
-					//'tk-futura-pt',
 					Classes['emd-brand--name'],
-					small && 'ps-1',
 					'leading-5'
 				)}>
 					{(isLoading || !name) ? (
@@ -48,7 +48,7 @@ const BrandComponent = ({
 				{subName && (
 					<div className={clsx(
 						small ? 'text-xxs' : 'text-xs',
-						'text-gray-400 ps-1 leading-5'
+						'text-gray-400'
 					)}
 					>
 						{subName}

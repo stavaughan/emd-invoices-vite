@@ -5,7 +5,6 @@ import clsx from 'clsx';
 import Classes from '../pages/NotFound/NotFound.module.css';
 
 const AlertPage = ({
-  h1,
   title,
   label,
   BackGroundSVG,
@@ -16,8 +15,8 @@ const AlertPage = ({
   const { isXSmall } = useMobile();
 
   return (
-    <div className={!isXSmall ? 'mt-3' : ''}>
-      <div className="container">
+    <>
+      <div className="container py-3">
         <div className="d-flex justify-content-center">
           <div className={clsx(
             "d-flex flex-column align-items-center",
@@ -29,7 +28,6 @@ const AlertPage = ({
             </div>
             <div className={isXSmall ? 'my-2' : 'my-3'}>
               <GradientTitleBlock
-                h1={h1}
                 title={title}
                 gradient
               />
@@ -48,7 +46,7 @@ const AlertPage = ({
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

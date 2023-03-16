@@ -76,7 +76,7 @@ const InvoicesPageContainer = (props) => {
 					/>
 				</SelectedItemContainer>
 			</Col>
-			<DisplayGroupModal />
+			<DisplayGroupModal groupName={props?.groupName} />
 		</ListPageWrapper>
 	);
 };

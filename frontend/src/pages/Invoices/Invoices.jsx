@@ -22,6 +22,8 @@ const Invoices = () => {
 						initTitle: res?.initTitle,
 						setTableTitle: res?.setTableTitle,
 					}}
+					// for print document name and title for invoice groups, default is 'invoice'
+					groupName={res?.customGroupName}
 					groupDisplayed={res?.groupDisplayed}
 					selectedInvoice={res?.selectedInvoice}
 					selectedID={res?.selectedInvoice?._id}

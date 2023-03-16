@@ -9,6 +9,7 @@ import {
   siteMessages,
   pageLayouts,
   formsData,
+  CreditsData,
   USStates
 } from '.';
 
@@ -17,31 +18,12 @@ const SiteData = {
   disclosures: SiteDisclosures,
   documentation: SiteDocumentation,
   modalIDs: SiteModalIDs,
-  headerLinks: [
-    {
-      modalID: 'newUserActivityModal',
-      icon: ['far', 'sticky-note'],
-      label: 'New activity...'
-    }
-  ],
+  credits: CreditsData,
   footerLinks: [
     {
-      _id: 'customers',
-      path: 'customers',
-      label: 'Customers',
-      user: true
-    },
-    {
-      _id: 'invoices',
-      path: 'invoices',
-      label: 'Invoices',
-      user: true
-    },
-    {
-      _id: 'products',
-      path: 'products',
-      label: 'Products',
-      user: true
+      _id: 'credits',
+      path: 'credits',
+      label: 'Credits'
     },
     {
       _id: 'terms',
