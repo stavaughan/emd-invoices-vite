@@ -3,13 +3,12 @@ import { BusinessesContainer } from './components';
 import { InvoicesProvider } from '@/contexts/invoices-context';
 import { StartingPointsPage } from '@/Layout';
 import { useSelector } from 'react-redux';
-import { useItemDelete, useItemUpdate, useLoadResource } from '@/hooks';
+import { useItemDelete, useItemUpdate } from '@/hooks';
 import { usePagination } from '@/components/Navigation/Pagination';
 
 const Businesses = () => {
 
-	const { loading } = useLoadResource('businesses');
-	const { businesses } = useSelector(state => state.businesses);
+	const { businesses, isLoading } = useSelector(state => state.businesses);
 
 	const { setDeleteId, deleteId } = useItemDelete('businesses')
 	const { setID, setReqBody, setReady } = useItemUpdate('businesses');
@@ -33,11 +32,11 @@ const Businesses = () => {
 			<StartingPointsPage
 				containerProps={{ className: 'py-3 px-xl-3' }}
 				dataKey="businesses"
-				noPageData={!loading && !hasData}
+				noPageData={!isLoading && !hasData}
 			>
 				<BusinessesContainer
 					businesses={currentPage?.items}
-					loading={loading}
+					loading={isLoading}
 					deleteId={deleteId}
 					setDataUpdate={setDataUpdate}
 					setDeleteId={setDeleteId}

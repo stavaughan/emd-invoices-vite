@@ -1,6 +1,5 @@
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useCallback } from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom'
 import { sliceData } from '@/features';
 import { statusCodes } from '@/features/sliceData';
 import { toast } from "react-toastify";
@@ -10,27 +9,27 @@ const useLoadData = ({ dataName }) => {
 
 	const action = useMemo(() => sliceData.find(_ => _.id === dataName), [dataName])
 
-	const navigate = useNavigate()
 	const dispatch = useDispatch()
 
 	const slice = useSelector((state) => state[dataName]);
 
+  const launchErrorToast = useCallback(() => {
+    if (Object.values(statusCodes).includes(slice?.message)) {
+      toast.error(`${Global.upperCaseFirst(dataName)} data cannot be fetched at this time due to server error. Please try again later.`, {
+        toastId: `nocollection${dataName}`,
+        position: 'top-center'
+      })
+    } else {
+      toast.error(slice?.message, {
+        toastId: `onload${dataName}`,
+        position: 'top-center'
+      })
+    }
+  }, []);
+
 	useEffect(() => {
 		if (slice?.isError) {
-			if (Object.values(statusCodes).includes(slice?.message)) {
-				navigate('/', {
-					replace: true,
-					state: {
-						title: 'No Data',
-						message: `${Global.upperCaseFirst(dataName)} data cannot be fetched at this time due to server error. Please try again later.`
-					}
-				})
-			} else {
-				toast.error(slice?.message, {
-					toastId: `onload${dataName}`,
-					position: 'top-center'
-				})
-			}
+			launchErrorToast();
 		} else {
 			dispatch(action.get())
 		}

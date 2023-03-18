@@ -1,18 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 
-const PortalWrapper = (props) => {
+const PortalWrapper = ({ rootName, children }) => {
 
-    const { rootName } = props;
+  const modalRoot = document.getElementById(rootName);
+  const modalElement = document.createElement('div');
 
-    return (
-        <>
-            {ReactDOM.createPortal(
-                <>{props.children}</>,
-                document.getElementById(rootName)
-            )}
-        </>
-    )
+  useEffect(() => {
+    modalRoot.appendChild(modalElement);
+    return () => {
+      modalRoot.removeChild(modalElement);
+    };
+  }, [modalElement]);
+
+    return <>{ReactDOM.createPortal(<>{children}</>, modalRoot)}</>
 }
 
 export default PortalWrapper;

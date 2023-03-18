@@ -54,10 +54,13 @@ const resetSelectStates = (state) => {
 
 // When a single invoice is updated
 const updateSelectState = (state, action) => {
+  state.selectedID = action.payload._id
+  state.selectedInvoice = action.payload
 	state.invoices = state.invoices
 		.map(invoice => invoice._id === action.payload._id ? action.payload : invoice)
 	state.filteredInvoices = state.filteredInvoices
 		.map(invoice => invoice._id === action.payload._id ? action.payload : invoice)
+    resetInvoicesState(state)
 }
 
 // when multiple invoices are updated
@@ -71,7 +74,7 @@ const updateSelectStates = (state, action) => {
 		.map(invoice => payloadIDs.includes(invoice._id)
 			? action.payload.find(_ => _._id === invoice._id)
 			: invoice)
-	resetInvoicesState(state)
+  resetSelectStates(state)
 };
 
 export const createInvoice = createAsyncThunk(

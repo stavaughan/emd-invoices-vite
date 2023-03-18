@@ -1,7 +1,11 @@
 import { useState, useMemo, useCallback, useEffect } from 'react';
 import { Pagination } from '.';
 
-const PageCountFooter = ({ data, startToLast, itemLabel }) => {
+const PageCountFooter = ({
+  data,
+  startToLast,
+  itemLabel
+}) => {
 
 	if (!data?.length || data.length === 1) return null;
 

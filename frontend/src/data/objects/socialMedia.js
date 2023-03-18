@@ -5,6 +5,7 @@ const socialMedia = [
 		color: "#4267B2",
 		lib: 'fab',
 		icon: 'facebook',
+    basePath: "facebook.com/",
 		baseLink: "https://www.facebook.com/",
 		prob: 0.7
 	},
@@ -14,6 +15,7 @@ const socialMedia = [
 		color: "#0077b5",
 		lib: 'fab',
 		icon: 'linkedin',
+    basePath: "linkedin.com/in/",
 		baseLink: "https://www.linkedin.com/in/",
 		prob: 0.7
 	},
@@ -23,6 +25,7 @@ const socialMedia = [
 		color: "#1DA1F2",
 		lib: 'fab',
 		icon: 'twitter',
+    basePath: "twitter.com/",
 		baseLink: "https://twitter.com/",
 		prob: 0.5
 	},
@@ -32,6 +35,7 @@ const socialMedia = [
 		color: "#DB4437",
 		lib: 'fab',
 		icon: 'google',
+    basePath: "google.com/",
 		baseLink: "https://google.com/",
 		prob: 0.1
 	},
@@ -41,6 +45,7 @@ const socialMedia = [
 		color: "#333",
 		lib: 'fab',
 		icon: 'github',
+    basePath: "github.com/",
 		baseLink: "https://github.com/",
 		prob: 0.3
 	},
@@ -50,6 +55,7 @@ const socialMedia = [
 		color: "#E1306C",
 		lib: 'fab',
 		icon: 'instagram-square',
+    basePath: "instagram.com/",
 		baseLink: "https://www.instagram.com/",
 		prob: 0.4
 	},
@@ -59,6 +65,7 @@ const socialMedia = [
 		color: "#E60023",
 		lib: 'fab',
 		icon: 'pinterest-square',
+    basePath: "pinterest.com/",
 		baseLink: "https://www.pinterest.com/",
 		prob: 0.2
 	}

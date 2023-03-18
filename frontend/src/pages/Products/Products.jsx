@@ -3,15 +3,14 @@ import { ProductsContainer } from './components';
 import { InvoicesProvider } from '@/contexts/invoices-context';
 import { StartingPointsPage } from '@/Layout';
 import { useSelector } from 'react-redux';
-import { useItemDelete, useItemUpdate, useLoadResource } from '@/hooks';
+import { useItemDelete, useItemUpdate } from '@/hooks';
 import { usePagination } from '@/components/Navigation/Pagination';
 
 const Products = () => {
 
 	const [selSID, setSelSID] = useState('');
 
-	const { loading } = useLoadResource('invoicedata');
-	const { services } = useSelector(state => state.invoicedata);
+	const { services, isLoading } = useSelector(state => state.invoicedata);
 
 	const { setDeleteId, deleteId } = useItemDelete('services')
 	const { setID, setReqBody, setReady } = useItemUpdate('services');
@@ -43,11 +42,11 @@ const Products = () => {
 		<InvoicesProvider>
 			<StartingPointsPage
 				dataKey="products"
-				noPageData={!loading && !hasData}
+				noPageData={!isLoading && !hasData}
 			>
 				<ProductsContainer
 					services={currentPage?.items}
-					loading={loading}
+					loading={isLoading}
 					deleteId={deleteId}
 					setDataUpdate={setDataUpdate}
 					setDeleteId={setDeleteId}

@@ -1,7 +1,6 @@
 import { ActionCellRow } from '@/components/Tables/components';
 import { AllItemsSection } from '@/components/Page/ListPage';
 import { InvoicesTableRow, InvoiceFilters, useAllInvoices } from '.';
-import { UpdateModals } from '@/pages/Invoices/components/Forms';
 import { InvoicesSnapShots } from '../SnapShot';
 
 import { SiteData } from '@/data';
@@ -69,7 +68,6 @@ const AllInvoicesTable = (props) => {
 					</ActionCellRow>
 				))}
 			</AllItemsSection>
-			<UpdateModals />
 		</>
 	);
 };

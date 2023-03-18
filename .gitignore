@@ -8,9 +8,14 @@ node_modules
 
 # testing
 /frontend/coverage
+/coverage
+/logs
+/tmp
 
 # production
 /frontend/build
+/frontend/dist
+/dist
 
 # misc
 /backend/data

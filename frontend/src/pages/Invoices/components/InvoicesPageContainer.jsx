@@ -1,4 +1,3 @@
-import React from 'react';
 import { SelectedItemTitle } from '@/components/Blocks/TitleBlocks';
 import { Col } from '@/components/HTML';
 import { ListPageWrapper, SelectedItemContainer } from '@/components/Page/ListPage';

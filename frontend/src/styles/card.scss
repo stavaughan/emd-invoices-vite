@@ -1,7 +1,8 @@
 /* Before Lists css */
 .card {
 	margin-bottom: 1.5rem;
-	border: 1px solid var(--gray-200);
+	// border: 1px solid var(--gray-200);
+  border: inherit;
 	border-radius: .5rem;
 }
 

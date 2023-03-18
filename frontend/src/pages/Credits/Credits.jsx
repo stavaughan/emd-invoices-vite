@@ -15,7 +15,7 @@ const Credits = () => {
   return (
     <PageContainer className="p-3">
       <section>
-        <Card>
+        <Card className="shadow-sm">
           <CardHeader title="Resources used or adapted from" />
           <CardBody>
             <ListGroupWrapper

@@ -17,7 +17,7 @@ const InvoicesSnapShot = ({
 	return (
 		<div className='w-100'>
 			<Card
-				className="rounded-2 shadow mb-2 gap-1"
+				className="rounded-2 shadow-sm mb-2 gap-1"
 				style={{
 					backgroundColor: colors?.bgColor2 || colors?.bgColor,
 					borderTop: `10px solid ${colors?.color3 || colors?.color}`

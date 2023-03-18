@@ -2,12 +2,17 @@ import { useMobile } from '@/hooks';
 import { Card, CardBody, CardFooter } from '@/components/Card';
 import clsx from 'clsx';
 
-const SectionContainer = ({ title, subTitle, footerContent, children }) => {
+const SectionContainer = ({
+  title,
+  subTitle,
+  footerContent,
+  children
+}) => {
 
 	const { isXSmall } = useMobile();
 
 	return (
-		<Card>
+		<Card className="shadow-sm">
 			<div className="sidebar-content-header">
 				<h4 className="font-medium text-dark mb-1">
 					{title}

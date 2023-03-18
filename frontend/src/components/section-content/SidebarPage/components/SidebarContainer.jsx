@@ -14,7 +14,7 @@ const SidebarContainer = ({ section, setSection, contentSections, navID }) => {
 	}, [navID])
 
 	return (
-		<nav className="navbar navbar-expand-md navbar-light mb-3 mb-lg-0 sidenav">
+		<nav className="navbar navbar-expand-md navbar-light mb-3 mb-lg-0 sidenav shadow-sm">
 			<span className="ms-3 d-md-none text-primary text-xs">
 				{menuTitle}
 			</span>

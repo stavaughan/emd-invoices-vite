@@ -29,7 +29,10 @@ export const FormsProvider = ({
     createSlice,
     selector,
     clear
-  } = useForm({ user, collection })
+  } = useForm({
+    isUser: user,
+    collection
+  })
 
   return (
     <FormsContext.Provider value={{

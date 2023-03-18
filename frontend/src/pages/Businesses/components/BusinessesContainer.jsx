@@ -34,7 +34,7 @@ const BusinessesContainer = ({
 			className={Classes["print-property"]}
 			ref={(elem) => printRef.current = elem}
 		>
-			<Card>
+			<Card className="shadow-sm">
 				<ContentHeader
 					data={businesses}
 					printRef={printRef}

@@ -1,4 +1,3 @@
-import { useLoadInvoices } from '@/hooks';
 import { useMemo, useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useSnapShot } from './SnapShot';
@@ -8,11 +7,17 @@ const useCompileInvoices = () => {
   	// TODO: create a 'invoiceSettings' collection for user customizations as this is for a real world scenario from a private repot. Just don't have time to do it now.
 	const customGroupName = 'design';
 
-	const { loading } = useLoadInvoices();
+	const {
+    services,
+    invoices,
+    filteredInvoices,
+    selectedInvoice,
+    isLoading: l1,
+  } = useSelector(state => state.invoicedata)
+	const { customers, isLoading: l2 } = useSelector(state => state.customers)
+	const { businesses, isLoading: l3 } = useSelector(state => state.businesses);
 
-	const { services, invoices, filteredInvoices, selectedInvoice } = useSelector(state => state.invoicedata)
-	const { customers } = useSelector(state => state.customers)
-	const { businesses } = useSelector(state => state.businesses);
+  const loading = useMemo(() => [l1, l2, l3].includes(true), [l1, l2, l3])
 
 	const { snapShotData } = useSnapShot(invoices);
 

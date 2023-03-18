@@ -35,7 +35,7 @@ const ProductsContainer = ({
 		<div
 			className={Classes["print-property"]}
 			ref={(elem) => printRef.current = elem}>
-			<Card>
+			<Card className="shadow-sm">
 				<ContentHeader
 					data={services}
 					printRef={printRef}

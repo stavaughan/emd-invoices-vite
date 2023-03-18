@@ -23,7 +23,7 @@ const SocialLinks = () => {
 	}, [settings]);
 
 	const sIcon = useCallback((id) => {
-		return SiteData.icons?.social.find(icon => icon.id === id);
+		return SiteData.socialMedia.find(icon => icon.id === id);
 	}, []);
 
     return (

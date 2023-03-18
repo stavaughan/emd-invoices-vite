@@ -4,7 +4,7 @@ import { sliceData } from '@/features';
 import { inputSchemas } from '@/state';
 import { useSelectorAlert } from '.';
 
-const useForm = ({ user, collection }) => {
+const useForm = ({ isUser, collection }) => {
 
 	const dataID = useMemo(() => {
 		return ['invoices', 'services'].includes(collection) ? 'invoicedata' : collection;
@@ -36,8 +36,9 @@ const useForm = ({ user, collection }) => {
 	}, [collection, getSchemaData, dataID]);
 
 	const { schema, create } = dataFromSliceData
-	const { _id: userID } = useSelector(state => state.auth).user;
-	const initialState = user ? inputSchemas[schema](userID) : inputSchemas[schema];
+	const { user } = useSelector(state => state.auth);
+  const userID = user !== null && !!user?._id ? user._id : '';
+	const initialState = (isUser && !!userID) ? inputSchemas[schema](userID) : inputSchemas[schema];
 
 	const { selector } = useSelectorAlert(dataID, 'New item successfully added.');
 
