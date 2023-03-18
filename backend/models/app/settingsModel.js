@@ -9,48 +9,39 @@ const settingsSchema = new mongoose.Schema(
     copyRight: {
       link: {
         type: String,
-        required: true,
         set: getters.toLower,
       },
-      label: {
-        type: String,
-        required: true,
-      },
-    },
-    appType: {
-      type: String,
-      enum: [
-        'guardianship-elder',
-        'guardianship-minor',
-        'organization',
-        'personal',
-        'business',
-        'other',
-      ],
+      label: String,
     },
     siteBranding: {
-      brand: {
-        type: String,
-        required: true,
-      },
-      logo: {
-        type: String,
-        required: true,
-      },
+      brand: String,
+      mark: String,
+      logo: String,
     },
     social: [socialSchema],
     developer: {
-      name: {
-        type: String,
-        required: true,
-      },
+      name: String,
+      mark: String,
       subName: String,
       url: {
         type: String,
         set: getters.toLower,
       },
     },
-    siteData: Object,
+    siteInfo: {
+      name: String,
+      siteName: String,
+      description: String,
+      businessName: String,
+      streetAddress: String,
+      city: String,
+      state: String,
+      zipCode: String,
+      phone: String,
+      email: String,
+      website: String,
+      coffeeLink: String,
+    },
   },
   {
     timestamps: true,

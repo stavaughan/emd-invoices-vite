@@ -22,6 +22,7 @@ const CenteredBrand = ({ loading }) => {
 		>
 			<BrandComponent
 				baseName={developer?.name}
+        mark={developer?.mark}
 				subName={developer?.subName}
 				isLoading={loading}
 				small={isSmall}

@@ -58,16 +58,6 @@ const socialMedia = [
     basePath: "instagram.com/",
 		baseLink: "https://www.instagram.com/",
 		prob: 0.4
-	},
-	{
-		id: 'pinterest',
-		name: 'Pinterest',
-		color: "#E60023",
-		lib: 'fab',
-		icon: 'pinterest-square',
-    basePath: "pinterest.com/",
-		baseLink: "https://www.pinterest.com/",
-		prob: 0.2
 	}
 ];
 

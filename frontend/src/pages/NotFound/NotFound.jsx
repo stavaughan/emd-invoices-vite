@@ -10,7 +10,7 @@ import ErrorBoundary from '@/state/ErrorBoundary';
 
 const NotFound = () => {
 
-	const { settings, isLoading } = useSelector(state => state.settings);
+	const { isLoading } = useSelector(state => state.settings);
 
 	const navigate = useNavigate();
 
@@ -22,10 +22,7 @@ const NotFound = () => {
 	};
 
 	return (
-		<Headerless
-			settings={settings}
-			isLoading={isLoading}
-		>
+		<Headerless isLoading={isLoading}>
 			<ErrorBoundary>
 				<AlertPage
 					title="404 Page Not Found"
@@ -36,11 +33,7 @@ const NotFound = () => {
 							'container position-relative',
 							screen?.isSmall && 'mt-2'
 						)}>
-							<CenteredBrand
-								loading={isLoading}
-								isSmall={screen?.isSmall}
-								settings={settings}
-							/>
+							<CenteredBrand loading={isLoading} />
 						</div>
 					)}
 					onClickHandler={onClickHandler}

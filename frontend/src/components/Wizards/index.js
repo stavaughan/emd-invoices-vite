@@ -1,1 +1,1 @@
-export { default as HorTwoSteps } from './HorTwoSteps';
+export { default as InlineSteps } from './InlineSteps';

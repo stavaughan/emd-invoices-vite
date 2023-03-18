@@ -19,7 +19,9 @@ const SiteHeader = ({ loading }) => {
 	const { settings } = useSelector(state => state.settings);
 
 	const developer = settings?.developer;
-	const siteBranding = settings?.siteBranding;
+	const branding = settings?.siteBranding;
+  const brandName = branding?.brand || developer?.name;
+  const brandMark = branding?.mark || developer?.mark;
 
 	return (
 		<header className="d-print-none">
@@ -31,7 +33,8 @@ const SiteHeader = ({ loading }) => {
 					<div className={clsx(isSmall ? 'pb-1' : 'ms-5 pb-2')}>
 						<Link to="/">
 							<BrandComponent
-								baseName={siteBranding?.brand || developer?.name}
+								baseName={brandName}
+                mark={brandMark}
 								isLoading={loading}
 								small={isSmall}
 							/>

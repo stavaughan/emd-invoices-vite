@@ -5,29 +5,29 @@ import clsx from 'clsx';
 
 const CopyRight = () => {
 
-    const { settings } = useSelector(state => state.settings);
+  const { settings } = useSelector(state => state.settings);
 
-	const { isXSmall } = useMobile();
+  const { isXSmall } = useMobile();
 
-    const copyRight = settings?.copyRight;
-    const encodedURL = copyRight ? encodeURI(copyRight?.link) : '';
+  const copyRight = settings?.copyRight;
+  const encodedURL = copyRight ? encodeURI(copyRight?.link) : '';
 
-    const copyRightText = `© ${new Date().getFullYear()} ${settings?.copyRight?.label}. All rights reserved.`
+  const copyRightText = `© ${new Date().getFullYear()} ${copyRight?.label || '[Business Name]'}. All rights reserved.`
 
-    return (
-        <div className="d-flex justify-content-center align-items-center">
-            <a
-                className={clsx(
-					isXSmall ? 'text-xs' : 'text-sm',
-					'text-gray-300-hover'
-				)}
-                {...controlProps.newTab(encodedURL)}
-				role="button"
-            >
-                {copyRightText}
-            </a>
-        </div>
-    )
+  return (
+    <div className="d-flex justify-content-center align-items-center">
+      <a
+        className={clsx(
+          isXSmall ? 'text-xs' : 'text-sm',
+          'text-gray-300-hover'
+        )}
+        {...controlProps.newTab(encodedURL)}
+        role="button"
+      >
+        {copyRightText}
+      </a>
+    </div>
+  )
 }
 
 export default CopyRight

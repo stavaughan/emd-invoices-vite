@@ -7,7 +7,7 @@ import ErrorBoundary from '@/state/ErrorBoundary';
 
 const Unauthorized = () => {
 
-	const { settings, isLoading } = useSelector(state => state.setting);
+	const { isLoading } = useSelector(state => state.setting);
 
 	const navigate = useNavigate();
 
@@ -21,10 +21,7 @@ const Unauthorized = () => {
 	}, [navigate]);
 
 	return (
-		<Headerless
-			settings={settings}
-			isLoading={isLoading}
-		>
+		<Headerless isLoading={isLoading}>
 			<ErrorBoundary>
 				<AlertPage
 					title="Unauthorized Access."

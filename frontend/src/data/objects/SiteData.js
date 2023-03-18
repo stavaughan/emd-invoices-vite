@@ -34,6 +34,11 @@ const SiteData = {
       _id: 'privacy',
       path: 'legal/privacy-policy',
       label: 'Privacy Policy'
+    },
+    {
+      _id: 'coffee',
+      label: 'Buy me a coffee',
+      url: 'https://www.buymeacoffee.com/',
     }
   ],
   pageGroupsContent,

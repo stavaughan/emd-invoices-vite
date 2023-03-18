@@ -129,6 +129,8 @@ import {
 	faUserShield,
 	faQuestionCircle,
 	faPersonCircleCheck,
+  faMugHot,
+  faCoffee,
 	faMapLocation,
 	faDownload,
 	faMapMarkerAlt,
@@ -302,6 +304,8 @@ const faIconList = () => {
 		faEdit,
 		faPaperPlane,
 		faMapLocation,
+    faMugHot,
+    faCoffee,
 		faCopy,
 		faCopyright,
 		faUserTimes

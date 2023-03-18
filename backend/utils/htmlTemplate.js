@@ -236,19 +236,18 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 body{background-color: black;color: white;}h1{color: red;}h6{color: red;}`;
 
 const htmlTemplate = {
-
-    messageWrapper: (msg) => {
-        return `
+  messageWrapper: (msg) => {
+    return `
             <style>
             ${styleSheet}
             </style>
             <div class='grid'>
                 <p class='text'>&#x26D4; ${msg} &#x26D4;</p>
             </div>`;
-    },
+  },
 
-    noAccessWrapper: (title, msg, code) => {
-        return `
+  noAccessWrapper: (title, msg, code) => {
+    return `
         <!DOCTYPE html>
         <html>
         <head>
@@ -294,12 +293,11 @@ const htmlTemplate = {
         </div>
         </body>
         </html>
-        `
-    },
+        `;
+  },
 
-    notFoundPage: (title) => {
-
-        return `
+  notFoundPage: (title) => {
+    return `
         <!DOCTYPE html>
         <html>
             <head>
@@ -822,8 +820,8 @@ const htmlTemplate = {
                 </div>
             </body>
         </html>
-        `
-    }
-}
+        `;
+  },
+};
 
-export default htmlTemplate
+export default htmlTemplate;

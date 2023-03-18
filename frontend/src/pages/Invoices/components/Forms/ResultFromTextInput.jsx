@@ -1,7 +1,7 @@
 import { InputGroup } from '@/components/Forms/Groups';
 import { Input } from '@/components/Forms/Inputs';
 import { MultiUploadImages } from '@/components/Upload/ImageUpload';
-import { HorTwoSteps } from '@/components/Wizards';
+import { InlineSteps } from '@/components/Wizards';
 import { useMobile } from '@/hooks';
 import { useMemo } from 'react';
 import { BulkDescriptionlink, DataToJSONInput } from '.';
@@ -52,7 +52,7 @@ const ResultFromTextInput = ({
 			{contrID ? (
 				<>
 					{!isXSmall && (
-						<HorTwoSteps
+						<InlineSteps
 							completeOne={hasImages}
 							completeTwo={!!JSON.parse(resultValue)?.invoices?.length}
 							labelOne="Load images"
