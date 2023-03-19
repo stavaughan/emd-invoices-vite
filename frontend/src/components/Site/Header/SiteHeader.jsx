@@ -11,11 +11,10 @@ import clsx from 'clsx';
 
 const SiteHeader = ({ loading }) => {
 
-	const { isSmall } = useContext(SettingsContext).screen;
+	const { screen } = useContext(SettingsContext);
+  const { isSmall, isXXLarge } = screen;
 	const { isNavCollapsed, setIsNavCollapsed } = useContext(DataContext);
-
 	const { userID } = useUserID();
-
 	const { settings } = useSelector(state => state.settings);
 
 	const developer = settings?.developer;
@@ -30,7 +29,10 @@ const SiteHeader = ({ loading }) => {
 				aria-label="primary"
 			>
 				<div className="container-fluid">
-					<div className={clsx(isSmall ? 'pb-1' : 'ms-5 pb-2')}>
+          <div className={clsx(
+						isSmall ? 'pb-1' : 'pb-2',
+						isXXLarge ? 'ms-4' : 'ms-2'
+					)}>
 						<Link to="/">
 							<BrandComponent
 								baseName={brandName}
@@ -51,13 +53,17 @@ const SiteHeader = ({ loading }) => {
 					>
 						<MenuIcon className="navbar-toggler-icon" />
 					</button>
-					<div className={clsx(
-						isNavCollapsed && 'collapse',
-						'navbar-collapse me-5'
-					)} id="navbarCollapse">
+					<div
+						id="navbarCollapse"
+						className={clsx(
+							isNavCollapsed && 'collapse',
+							'navbar-collapse',
+							isXXLarge ? 'me-5' : 'me-3'
+						)}
+					>
 						<ul className={clsx(
 							'navbar-nav',
-							isSmall && 'mt-4 ps-2'
+							isSmall && 'mt-4 ps-4 pb-3'
 						)}>
 							<DDLabelsLarge loading={loading} />
 							<DDLabelsSmall />

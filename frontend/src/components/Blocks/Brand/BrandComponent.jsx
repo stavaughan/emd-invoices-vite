@@ -16,17 +16,12 @@ const BrandMark = ({ mark }) => {
 
 const BrandComponent = ({
   isLoading,
-  baseName = '[Brand Name]',
+  baseName,
   mark,
   subName,
   color,
   small
 }) => {
-
-  console.log({
-    baseName,
-    mark,
-  })
 
   const name = baseName ? baseName.toUpperCase() : '';
 
@@ -36,38 +31,34 @@ const BrandComponent = ({
       Classes[color ? 'emd-brand--color' : 'emd-brand--non-color'],
       small && Classes['emd-brand--small']
     )}>
-      <div className={Classes['emd-brand--logo']}>
-        {(isLoading || !name)
+      <div {...!!baseName && { className: Classes['emd-brand--logo'] }}>
+        {isLoading
           ? <SkeletonElem width="55" height="80" />
-          : <BrandLogo color={color} width="55" />}
+          : <BrandLogo color={color} width="55" hasLogo={!!baseName} />}
       </div>
-      <div>
-        <div className={clsx(
-          Classes['emd-brand--name'],
-          'leading-5'
-        )}>
-          {(isLoading || !name) ? (
-            <SkeletonElem
-              width={small ? '80px' : '180px'}
-              height="25px"
-            />
-          ) : (
-            <>
-              {name}
-              <BrandMark mark={mark} />
-            </>
+      {isLoading && (
+        <div>
+          <div className={clsx(Classes['emd-brand--name'], 'leading-5')}>
+              <SkeletonElem
+                width={small ? '80px' : '180px'}
+                height="25px"
+              />
+          </div>
+        </div>
+      )}
+      {(!isLoading && !!baseName) && (
+        <div>
+          <div className={clsx(Classes['emd-brand--name'], 'leading-5')}>
+            {name}
+            <BrandMark mark={mark} />
+          </div>
+          {subName && (
+            <div className={clsx(small ? 'text-xxs' : 'text-xs', 'text-gray-400')}>
+              {subName}
+            </div>
           )}
         </div>
-        {subName && (
-          <div className={clsx(
-            small ? 'text-xxs' : 'text-xs',
-            'text-gray-400'
-          )}
-          >
-            {subName}
-          </div>
-        )}
-      </div>
+      )}
     </div>
   );
 };

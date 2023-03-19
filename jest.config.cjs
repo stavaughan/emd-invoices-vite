@@ -5,6 +5,7 @@ module.exports = {
   bail: true,
   verbose: true,
   onlyChanged: true,
+  transform: {},
   cacheDirectory: '<rootDir>/tmp/jest',
   testMatch: ['<rootDir>/backend/**/*.test.js'],
   coverageDirectory: '<rootDir>/coverage',

@@ -17,7 +17,7 @@ const CenteredBrand = ({ loading }) => {
 	return (
 		<div className={clsx(
 			"d-flex justify-content-center py-3",
-			Classes["emd-brand-login--logo"]
+      !!developer?.name && Classes["emd-brand-login--logo"]
 		)}
 		>
 			<BrandComponent

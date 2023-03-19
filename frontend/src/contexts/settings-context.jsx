@@ -12,13 +12,10 @@ const SettingsContext = createContext({
 
 export const SettingsContextProvider = (props) => {
 
-  const { screen, windowWidth, breakPointWidth } = useScreenWidth();
+	const { screen, windowWidth, breakPointWidth } = useScreenWidth();
 
-  const fontSize = useFontSize({
-    isXSmall: screen.isXSmall
-  });
-
-  const { lockScroll, unlockScroll } = useScrollLock();
+	const fontSize = useFontSize({ isXSmall: screen.isXSmall });
+	const { lockScroll, unlockScroll } = useScrollLock();
 
   return (
     <SettingsContext.Provider

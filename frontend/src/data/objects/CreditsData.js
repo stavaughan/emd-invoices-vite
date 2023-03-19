@@ -26,6 +26,15 @@ const CreditsData = [
     license: 'MIT',
     licenseUrl: 'https://bgjar.com'
   },
+  {
+    _id: 'svglogo',
+    name: 'Demo SVG Logo',
+    author: 'logoipsum',
+    description: 'Temporary SVG Logo for demo purposes',
+    url: 'https://logoipsum.com/',
+    license: 'MIT',
+    licenseUrl: 'https://logoipsum.com/'
+  },
 ];
 
 export default CreditsData;
