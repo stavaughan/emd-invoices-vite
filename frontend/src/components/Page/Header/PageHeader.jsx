@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { PageTitle, TitleIcon } from '@/components/Blocks/TitleBlocks/PageTitle';
+import { TitleIcon, PageTitle } from '.';
 import { Col, Row } from '@/components/HTML';
 import { NavLinks } from '@/components/Navigation';
 import { PageObjects } from '@/globals/js';

@@ -2,14 +2,11 @@ import { TitleDescription } from '@/components/Blocks';
 import { LinkHoverBtn } from '@/components/Buttons';
 import { ResponsiveTable } from '@/components/Tables';
 import { SiteData } from '@/data';
-import { useMobile } from '@/hooks';
 import { useAdminData } from '@/pages/Admin/components';
 
 const RolesPermissions = () => {
 
 	const { modalIDs } = SiteData;
-
-	const { isXSmall } = useMobile();
 	const { rolesPermissionsTable } = useAdminData()
 
 	return (
@@ -26,10 +23,10 @@ const RolesPermissions = () => {
 				</LinkHoverBtn>
 			</div>
 			<ResponsiveTable
-				tableContent={rolesPermissionsTable(isXSmall)}
-				tdClass="py-2 border-bottom ps-3"
+				tableContent={rolesPermissionsTable}
+        tdClass="py-2 border-bottom-0 ps-3"
 				noHover={true}
-				{...isXSmall && { type: 'nested' }}
+        type="nested"
 			/>
 			<hr className="my-5" />
 		</section>

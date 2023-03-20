@@ -1,0 +1,14 @@
+.header--avatar-img svg {
+    width: 3.4rem;
+    height: 3.4rem;
+}
+
+.text-gradient--svg {
+    background: -webkit-linear-gradient(-70deg, var(--cyan-300) 0%, var(--indigo-800) 100%);
+    background-image: -webkit-linear-gradient(-70deg, var(--cyan-300) 0%, var(--indigo-800) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+}

@@ -29,7 +29,9 @@ const HeaderLinks = ({ isLoading }) => {
 
 	const { isSmall, isXXLarge } = useContext(SettingsContext).screen;
 
-	const { avatarID, userName } = useSelector(state => state.auth).user;
+  const { user } = useSelector(state => state.auth);
+  const userName = user?.userName || '';
+  const avatarID = user?.avatarID || '';
 	const { settings } = useSelector(state => state.settings);
 
 	return (

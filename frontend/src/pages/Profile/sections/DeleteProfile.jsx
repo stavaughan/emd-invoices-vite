@@ -8,7 +8,9 @@ import { Button } from '@/components/Buttons';
 
 const DeleteProfile = () => {
 
-	const { _id: userID } = useSelector(state => state.auth).user;
+	// const { _id: userID } = useSelector(state => state.auth).user;
+  const { user } = useSelector(state => state.auth);
+  const userID = user?.userID || '';
 
 	const { exportUserData } = useExportUserData();
 

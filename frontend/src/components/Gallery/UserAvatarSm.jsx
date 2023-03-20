@@ -8,18 +8,16 @@ const UserAvatarSm = ({ avatarID, site }) => {
 
 	const { isXXLarge } = useContext(SettingsContext).screen;
 
-	const pid = avatarID ? `profile-images/${avatarID}` : '';
-
 	const spanClass = (site && !isXXLarge)
 		? Classes['image-avatar-sm-rt']
 		: Classes['image-avatar-sm'];
 
-	if (!pid) return <AvatarIconSm />
+	if (!avatarID) return <AvatarIconSm />
 
 	return (
 		<span className={spanClass}>
 			<FetchedImage
-				pid={pid}
+				pid={`profile-images/${avatarID}`}
 				width="36"
 				height="36"
 			/>

@@ -1,8 +1,10 @@
-const IconWrapper = ({ children }) => (
+import React from 'react';
+
+const IconWrapper = (props) => (
 	<svg
-		width="24"
-		height="24"
-		viewBox="0 0 24 24"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
 	>
 		<defs>
 			<linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -26,7 +28,7 @@ const IconWrapper = ({ children }) => (
 			fill="none"
 			fillRule="evenodd"
 		>
-			{children}
+			{props.children}
 		</g>
 	</svg>
 );

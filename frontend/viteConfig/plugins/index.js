@@ -1,14 +1,13 @@
 import react from '@vitejs/plugin-react';
+import { splitVendorChunkPlugin } from 'vite'
 import configPwaPlugin from './pwa';
 
 const configPlugins = (mode) => {
-	const vitePlugins = [];
-	vitePlugins.push(
-		react(),
-		configPwaPlugin(mode)
-	);
-
-	return vitePlugins;
+  return [
+    react(),
+    configPwaPlugin(mode),
+    splitVendorChunkPlugin()
+  ];
 };
 
 export default configPlugins;

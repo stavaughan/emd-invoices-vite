@@ -4,7 +4,7 @@ import { Button } from '@/components/Buttons';
 import { useMobile } from '@/hooks';
 import { toast } from 'react-toastify';
 import { controlProps } from '@/globals/js';
-import clsx from 'clsx'
+import clsx from 'clsx';
 
 import Classes from '../EmptyState/styles/EmptyStates.module.css'
 

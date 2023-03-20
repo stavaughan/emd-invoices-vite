@@ -9,7 +9,9 @@ const PageSelectorDDLinks = ({ small, option }) => {
 	const { allowedPIDs, allowedPage } = useNavLogic();
 
 	const { setIsNavCollapsed } = useContext(DataContext);
-	const { userID, access } = useSelector(state => state.auth).user;
+  const { user } = useSelector(state => state.auth);
+  const userID = user?.userID || '';
+  const access = user?.access || '';
 
 	const pids = useMemo(() => allowedPIDs(option.label, access), [option.label, access, allowedPIDs]);
 
@@ -30,7 +32,7 @@ const PageSelectorDDLinks = ({ small, option }) => {
 							className="dropdown-item"
 							role="button"
 							onClick={() => setIsNavCollapsed(true)}
-							to={`/${userID}/${page?.path}`}
+							to={userID ? `/${userID}/${page?.path}` : '/'}
 						>
 							{page?.label}
 						</NavLink>

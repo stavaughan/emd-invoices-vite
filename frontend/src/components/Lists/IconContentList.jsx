@@ -69,9 +69,8 @@ const IconContentList = ({
 						'position-relative',
 						'm-n2 p-2.5',
 						'd-flex align-items-center justify-content-start',
-						'space-x-4 rounded-xl',
-						!item?.disabledMessage && 'hover:bg-gray-50',
-						item?.disabledMessage && 'bg-slate-50',
+						'space-x-4 rounded-xl bg-slate-50',
+            !item?.disabledMessage && 'hover:bg-gray-50',
 						Classes['focus-within:ring-2'],
 						activeClass(item, idx) && Classes.active
 					)}>

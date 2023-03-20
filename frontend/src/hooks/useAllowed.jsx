@@ -2,7 +2,8 @@ import { useSelector } from "react-redux";
 
 const useAllowed = () => {
 
-    const { access } = useSelector(state => state.auth).user;
+    const { user } = useSelector(state => state.auth);
+    const access = user?.access || '';
     return { allowed: access === 'admin' }
 }
 

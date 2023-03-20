@@ -3,7 +3,9 @@ import { UserAvatarSm } from '@/components/Gallery';
 
 const UserAvatar = () => {
 
-	const { avatarID, userName } = useSelector(state => state.auth).user;
+  const { user } = useSelector(state => state.auth);
+  const avatarID = user?.avatarID || '';
+  const userName = user?.userName || '';
 
     return (
         <span style={{

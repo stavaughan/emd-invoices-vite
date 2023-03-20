@@ -6,7 +6,8 @@ import express from 'express';
 import fileUpload from 'express-fileupload';
 import rateLimit, { MemoryStore } from 'express-rate-limit';
 import { contentSecurityPolicy } from 'helmet';
-import path from 'path';
+import { dirname, join, resolve } from 'path';
+import { fileURLToPath } from 'url';
 
 import connectDB from './config/db';
 import logger from './logger';
@@ -121,17 +122,18 @@ app.use(`${PREFIX}/esec`, esecRouter);
 app.use(`${PREFIX}/document-files`, documentsRouter);
 
 // const __dirname = currDir(import.meta.url);
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 if (process.env.NODE_ENV === 'development') {
   app.get('/*', (_req, res) => res.send(messages.noAccess()));
 } else {
   app.use(
-    express.static(path.join(__dirname, '../frontend/dist'), {
+    express.static(join(__dirname, '../frontend/dist'), {
       maxAge: 31557600000,
     })
   );
   app.get('/*', (_req, res) => {
-    res.sendFile(path.resolve(__dirname, '../frontend/dist/index.html'));
+    res.sendFile(resolve(__dirname, '../frontend/dist/index.html'));
   });
 }
 

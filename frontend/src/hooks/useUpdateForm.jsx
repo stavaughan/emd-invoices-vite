@@ -49,7 +49,9 @@ const useUpdateForm = ({
 	};
 
 	// Get schema state for collection
-	const { _id: userID } = useSelector(state => state.auth).user;
+	// const { _id: userID } = useSelector(state => state.auth).user;
+  const { user } = useSelector(state => state.auth);
+  const userID = user?.userID || '';
 	const schemaState = userOnly
 		// Set schema state to user if data meant to be viewed by user only
 		? inputSchemas[schema](userID)

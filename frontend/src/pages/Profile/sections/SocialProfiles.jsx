@@ -12,15 +12,18 @@ const SocialProfiles = () => {
 	const { setID, setReqBody, loading, setReady } = useItemUpdate('contacts')
 
 	const { contacts } = useSelector(state => state.contacts)
-	const { contactID } = useSelector(state => state.auth).user
+  const { user } = useSelector(state => state.auth);
+  const contactID = user?.contactID || '';
 
 	const social = useMemo(() => {
-		const contact = contacts.find(_ => _._id === contactID)
-		return contact?.social || {}
+		const contact = contacts?.length ? contacts.find(_ => _._id === contactID) : null;
+    const contactSocial = contact?.social || [];
+		return contactSocial
 	}, [contacts, contactID]);
 
 	const profileName = useCallback((id) => {
-		return (social?.length && social.find(_ => _.media === id)?.profileName) || ''
+    const pName = social?.length ? social.find(_ => _.media === id)?.profileName : '';
+		return pName;
 	}, [social]);
 
 	const initState = useMemo(() => {

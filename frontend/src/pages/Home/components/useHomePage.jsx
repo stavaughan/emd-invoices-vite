@@ -5,7 +5,8 @@ import { SiteData } from '@/data';
 
 const useHomePage = () => {
 
-	const { access, userID } = useSelector(state => state.auth).user;
+  const { user } = useSelector(state => state.auth);
+  const access = user?.access || '';
 
 	const homePageLinkGroups = useMemo(() => {
 
@@ -54,7 +55,7 @@ const useHomePage = () => {
 		pageCard,
 		cardHeading,
 		access,
-		userID
+		userID: user?.userID || ''
 	}
 }
 
