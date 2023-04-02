@@ -1,0 +1,25 @@
+{
+	"short_name": "GoldCalc",
+	"name": "Precious Metals Calculator",
+	"icons": [
+		{
+			"src": "favicon.svg",
+			"sizes": "64x64 32x32 24x24 16x16",
+			"type": "image/x-icon"
+		},
+		{
+			"src": "favicon.svg",
+			"type": "image/svg+xml",
+			"sizes": "192x192"
+		},
+		{
+			"src": "favicon.svg",
+			"type": "image/svg+xml",
+			"sizes": "512x512"
+		}
+	],
+	"display": "standalone",
+	"start_url": "./",
+	"theme_color": "#720000",
+	"background_color": "#fff"
+}

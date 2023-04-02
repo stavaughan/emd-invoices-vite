@@ -1,5 +1,5 @@
-import { createLogger, format, transports } from 'winston';
 import dotenv from 'dotenv';
+import { createLogger, format, transports } from 'winston';
 
 dotenv.config();
 

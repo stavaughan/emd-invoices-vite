@@ -1,6 +1,5 @@
 const emailWrapper = (html) => {
-
-    return `
+  return `
         <div style="margin:0px;padding:0px">
             <table
                 lang="en"
@@ -28,19 +27,21 @@ const emailWrapper = (html) => {
                 </tbody>
             </table>
         </div>
-    `
-}
+    `;
+};
 
 const paragraphs = (text) => {
-    if (!text?.length) return '';
-    return text.split('\n').map(line => {
-        return `<p style="text-align:left;line-height:1.4;color:#343a40;font-size:.97rem;margin:0 0 15px 0;padding:0" align="left">${line}</p>`
-    }).join('')
-}
+  if (!text?.length) return '';
+  return text
+    .split('\n')
+    .map((line) => {
+      return `<p style="text-align:left;line-height:1.4;color:#343a40;font-size:.97rem;margin:0 0 15px 0;padding:0" align="left">${line}</p>`;
+    })
+    .join('');
+};
 
 export const emailHTML = ({ title, content1, label, content2, link }) => {
-
-    const html = `
+  const html = `
         <table
             align="center"
             cellpadding="0"
@@ -105,5 +106,5 @@ export const emailHTML = ({ title, content1, label, content2, link }) => {
             </tbody>
         </table>`;
 
-    return emailWrapper(html)
+  return emailWrapper(html);
 };

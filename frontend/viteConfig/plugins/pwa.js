@@ -1,36 +1,31 @@
 import { VitePWA } from 'vite-plugin-pwa';
 
-// adapted from: https://github.com/vite-pwa/vite-plugin-pwa/blob/main/examples/react-router/vite.config.ts
-
 const configPwaPlugin = (mode) => {
 	const pwaOptions = {
 		mode,
 		base: '/',
 		includeAssets: [
-			'favicon.svg',
-			'favicon.ico',
 			'robots.txt',
-			'apple-touch-icon.png'
 		],
 		manifest: {
-			name: 'EMD Invoices',
-			short_name: 'Invoices',
-			description: 'Invoices Manager',
+			name: 'RGM Invoice Manager',
+			short_name: 'Invoice Manager',
+			description: 'Manage invoices for self employed households with multiple businesses',
 			theme_color: '#720000',
 			background_color: '#fff',
 			icons: [
 				{
-					src: '/pwa/logo192.svg',
+					src: 'favicon.svg',
 					sizes: '192x192',
-					type: 'image/png',
+					type: 'image/svg+xml',
 				},
 				{
-					src: "/pwa/logo512.svg",
+					src: "favicon.svg",
 					sizes: "512x512",
 					type: "image/svg+xml",
 				},
 				{
-					src: "/pwa/logo512.svg",
+					src: "favicon.svg",
 					sizes: "512x512",
 					type: "image/svg+xml",
 					purpose: 'any maskable',
@@ -39,7 +34,6 @@ const configPwaPlugin = (mode) => {
 		},
 		devOptions: {
 			enabled: process.env.SW_DEV === 'true',
-			/* when using generateSW the PWA plugin will switch to classic */
 			type: 'module',
 			navigateFallback: 'index.html',
 		},

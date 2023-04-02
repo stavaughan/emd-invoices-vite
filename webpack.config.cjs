@@ -8,7 +8,6 @@ module.exports = {
   target: 'node',
   mode: process.env.NODE_ENV,
   output: {
-    // filename: isProduction ? 'server.[contenthash].js' : 'server.js',
     filename: 'server.cjs',
     path: path.resolve(__dirname, 'dist'),
   },

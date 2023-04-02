@@ -3,41 +3,29 @@ import { useSelector } from 'react-redux';
 import { sliceData } from '@/features';
 import { inputSchemas } from '@/state';
 import { useSelectorAlert } from '.';
+import { Global } from '@/globals/js';
+
+const { upperCaseFirst } = Global;
 
 const useForm = ({ isUser, collection }) => {
 
-	const dataID = useMemo(() => {
-		return ['invoices', 'services'].includes(collection) ? 'invoicedata' : collection;
-	}, [collection]);
+	const dataID = useMemo(() =>
+		['invoices', 'services'].includes(collection) ? 'invoicedata' : collection, [collection]);
 
-	const getSchemaData = useCallback((collection, data) => {
-		switch (collection) {
-			case 'invoices':
-				return {
-					schema: data.schemaInvoice,
-					create: data.createInvoice
-				};
-			case 'services':
-				return {
-					schema: data.schemaService,
-					create: data.createService
-				};
-			default:
-				return {
-					schema: data.schema,
-					create: data.create
-				};
-		}
-	}, []);
+	const dataKeys = useMemo(() => sliceData.find(_ => _.id === dataID), [dataID]);
 
-	const dataFromSliceData = useMemo(() => {
-		const data = sliceData.find(_ => _.id === dataID);
-		return getSchemaData(collection, data);
-	}, [collection, getSchemaData, dataID]);
+	const dataValue = useCallback((collection, dataKey) => {
+		if(!['invoices', 'services'].includes(collection)) return dataKeys[dataKey];
+		return dataKeys[dataKey + upperCaseFirst(collection.replace(/.$/, ''))];
+	}, [dataKeys]);
 
-	const { schema, create } = dataFromSliceData
+	const { schema, create } = useMemo(() => ({
+		schema: dataValue(collection, 'schema'),
+		create: dataValue(collection, 'create')
+	}), [collection, dataValue]);
+
 	const { user } = useSelector(state => state.auth);
-  const userID = user !== null && !!user?._id ? user._id : '';
+	const userID = user !== null && !!user?._id ? user._id : '';
 	const initialState = (isUser && !!userID) ? inputSchemas[schema](userID) : inputSchemas[schema];
 
 	const { selector } = useSelectorAlert(dataID, 'New item successfully added.');
@@ -46,12 +34,10 @@ const useForm = ({ isUser, collection }) => {
 	const [entering, setEntering] = useState(false);
 	const [newItem, setNewItem] = useState(initialState);
 
-	const clearForm = useCallback(() => {
-		setClear(true)
-	}, [setClear]);
+	const clearForm = useCallback(() => setClear(true), [setClear]);
 
 	useEffect(() => {
-		if(clear) {
+		if (clear) {
 			let timer = setTimeout(() => {
 				setEntering(false);
 				setNewItem(initialState)

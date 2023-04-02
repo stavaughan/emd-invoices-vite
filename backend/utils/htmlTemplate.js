@@ -299,11 +299,11 @@ const htmlTemplate = {
   notFoundPage: (title) => {
     return `
         <!DOCTYPE html>
-        <html>
+        <html lang="en">
             <head>
                 <title>${title}</title>
-                <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
                 <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
                 <!--
 
                 Copyright (c) 2018 - Carla - https://codepen.io/ckroll17/pen/MzWgLo
