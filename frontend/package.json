@@ -88,7 +88,7 @@
 		"prettier": "^2.8.4",
 		"prettier-plugin-style-order": "^0.2.2",
 		"react-test-renderer": "^18.2.0",
-		"stylelint": "^15.2.0",
+		"stylelint": "^15.10.1",
 		"stylelint-config-idiomatic-order": "^9.0.0",
 		"stylelint-config-prettier-scss": "^0.0.1",
 		"stylelint-config-standard-scss": "^7.0.1",
