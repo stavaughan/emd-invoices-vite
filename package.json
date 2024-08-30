@@ -59,7 +59,7 @@
     "mongoose": "^6.11.3",
     "nodemailer": "^6.9.9",
     "pretty-error": "^4.0.0",
-    "webpack": "^5.76.1",
+    "webpack": "^5.94.0",
     "webpack-cli": "^5.0.1",
     "winston": "^3.8.2",
     "winston-transport": "^4.5.0"
